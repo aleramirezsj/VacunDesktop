@@ -31,9 +31,9 @@
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuItemPrincipal = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemTutores = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemCalendarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemListados = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuItemCalendarios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,13 @@
             this.mnuItemTutores.Text = "Tutores";
             this.mnuItemTutores.Click += new System.EventHandler(this.mnuItemTutores_Click);
             // 
+            // MnuItemCalendarios
+            // 
+            this.MnuItemCalendarios.Name = "MnuItemCalendarios";
+            this.MnuItemCalendarios.Size = new System.Drawing.Size(136, 22);
+            this.MnuItemCalendarios.Text = "Calendarios";
+            this.MnuItemCalendarios.Click += new System.EventHandler(this.MnuItemCalendarios_Click);
+            // 
             // mnuItemListados
             // 
             this.mnuItemListados.Name = "mnuItemListados";
@@ -76,13 +83,6 @@
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.Size = new System.Drawing.Size(41, 20);
             this.mnuSalir.Text = "Salir";
-            // 
-            // MnuItemCalendarios
-            // 
-            this.MnuItemCalendarios.Name = "MnuItemCalendarios";
-            this.MnuItemCalendarios.Size = new System.Drawing.Size(136, 22);
-            this.MnuItemCalendarios.Text = "Calendarios";
-            this.MnuItemCalendarios.Click += new System.EventHandler(this.MnuItemCalendarios_Click);
             // 
             // FrmMenuPrincipal
             // 
