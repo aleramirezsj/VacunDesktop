@@ -7,28 +7,84 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.9" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.3" />
+    <EmbeddedResource Remove="Presentation\FrmNuevoEditarVacuna.resx" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>..\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>..\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CalendariosyVacunas.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CalendariosyVacunas.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DataSetTutoresPacientes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSetTutoresPacientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="DSCalendariosyVacunas2.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSCalendariosyVacunas2.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Presentation\FrmCalendarios.cs" />
     <Compile Update="Presentation\FrmNuevoEditarCalendario.cs" />
     <Compile Update="Presentation\FrmNuevoEditarTutor - Copia.Designer.cs">
       <DependentUpon>FrmNuevoEditarTutor.Designer.cs</DependentUpon>
     </Compile>
     <Compile Update="Presentation\FrmVacunas.cs" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Presentation\FrmNuevoEditarTutor - Copia.resx">
       <DependentUpon>FrmNuevoEditarTutor.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CalendariosyVacunas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalendariosyVacunas.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="DataSetTutoresPacientes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTutoresPacientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="DSCalendariosyVacunas2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCalendariosyVacunas2.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

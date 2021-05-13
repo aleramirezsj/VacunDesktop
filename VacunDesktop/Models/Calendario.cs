@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,8 +16,9 @@ namespace VacunDesktop.Models
         public SexoEnum SexoPaciente { get; set; }
         [Required]
         public bool PrematuroPaciente { get; set; }
-        public ICollection<Paciente> Pacientes { get; set; }
 
+
+        public virtual ObservableCollection<DetalleCalendario> DetalleCalendarios { get; set; }
 
     }
 }

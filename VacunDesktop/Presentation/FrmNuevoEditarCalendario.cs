@@ -13,7 +13,7 @@ namespace VacunDesktop.Presentation
     public partial class FrmNuevoEditarCalendario : Form
     {
         public int? IdEditar { get; set; }
-        public Calendario calendario { get; set; }
+        public Calendario calendario = new Calendario();
         public FrmNuevoEditarCalendario(int? idSeleccionado=null)
         {
             InitializeComponent();
@@ -22,10 +22,6 @@ namespace VacunDesktop.Presentation
             if (idSeleccionado != null) { 
                 IdEditar = idSeleccionado;
                 CargarDatosDelCalendarioEnPantalla();
-            }
-            else
-            {
-                calendario = new Calendario();
             }
 
         }

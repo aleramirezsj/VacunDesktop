@@ -27,7 +27,8 @@ namespace VacunDesktop.Models
         [Required]
         public int TutorId { get; set; }
         public Tutor Tutor { get; set; }
-        public int CalendarioId { get; set; }
+        
+        public int? CalendarioId { get; set; }
         public Calendario Calendario { get; set; }
 
     }

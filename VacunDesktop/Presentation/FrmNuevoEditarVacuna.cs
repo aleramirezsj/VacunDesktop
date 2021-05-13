@@ -36,7 +36,7 @@ namespace VacunDesktop.Presentation
                 vacuna = db.Vacunas.Find(IdVacunaEditar);
                 TxtNombreV.Text = vacuna.Nombre;
                 TxtBeneficios.Text = vacuna.Beneficios;
-                NUpDownPeriodo.Value = vacuna.PeriodoAplicacion;
+                NUpDownPeriodo.Value = vacuna.PeriodoAplicación;
             }
 
         }
@@ -47,7 +47,7 @@ namespace VacunDesktop.Presentation
 
                 //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto
                 vacuna.Nombre = TxtNombreV.Text;
-                vacuna.PeriodoAplicacion = Convert.ToInt32(NUpDownPeriodo.Value);
+                vacuna.PeriodoAplicación = Convert.ToInt32(NUpDownPeriodo.Value);
                 vacuna.Beneficios = TxtBeneficios.Text;
 
                 //si el id de la vacuna a editar es nulo agregamos una vacuna a la tabla
@@ -96,7 +96,7 @@ namespace VacunDesktop.Presentation
 
         private bool CompararDatosFormularioConLosDeBBDD()
         {
-            return (vacuna.Nombre == TxtNombreV.Text && vacuna.Beneficios == TxtBeneficios.Text && vacuna.PeriodoAplicacion == NUpDownPeriodo.Value);
+            return (vacuna.Nombre == TxtNombreV.Text && vacuna.Beneficios == TxtBeneficios.Text && vacuna.PeriodoAplicación == NUpDownPeriodo.Value);
         }
 
         private void PreguntarSiSaleSinGuardar()

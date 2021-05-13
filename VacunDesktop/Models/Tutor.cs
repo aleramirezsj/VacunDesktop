@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace VacunDesktop.Models
@@ -13,6 +15,6 @@ namespace VacunDesktop.Models
         [Required]
         public string Email { get; set; }
 
-        //public ICollection<Paciente> Pacientes { get; set; }
+        public  ICollection<Paciente> Pacientes { get; set; }
     }
 }

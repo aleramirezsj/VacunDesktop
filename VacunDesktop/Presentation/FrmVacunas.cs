@@ -25,15 +25,15 @@ namespace VacunDesktop.Presentation
         private void ActualizarGrilla()
         {
             using (var db = new VacunWebContext()) { 
-                grid.DataSource = db.Tutores.ToList();
+                grid.DataSource = db.Vacunas.ToList();
             }
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             //abrimos el formulario para la carga de un nuevo tutor
-            var frmNuevoEditarTutor = new FrmNuevoEditarTutor();
-            frmNuevoEditarTutor.ShowDialog();
+            var frmNuevoEditarVacuna = new FrmNuevoEditarVacuna();
+            frmNuevoEditarVacuna.ShowDialog();
             //actualizamos la grilla
             ActualizarGrilla();
             //seleccionamos la fila del nuevo registro cargado
@@ -45,8 +45,8 @@ namespace VacunDesktop.Presentation
             var idTutorSeleccionado = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
             var filaAEditar = grid.CurrentRow.Index;
             //abrimos el formulario para la edición de tutor seleccionado
-            var frmNuevoEditarTutor = new FrmNuevoEditarTutor(idTutorSeleccionado);
-            frmNuevoEditarTutor.ShowDialog();
+            var frmNuevoEditarVacuna = new FrmNuevoEditarVacuna(idTutorSeleccionado);
+            frmNuevoEditarVacuna.ShowDialog();
             //actualizamos la grilla
             ActualizarGrilla();
             //seleccionamos el registro editado
@@ -56,17 +56,17 @@ namespace VacunDesktop.Presentation
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             //obtenemos el id y nombre del tutor seleccionado en la grilla
-            var idTutorSeleccionado = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
-            var nombreTutorSeleccionado = grid.CurrentRow.Cells[1].Value.ToString() + " " + grid.CurrentRow.Cells[2].Value.ToString();
+            var idSeleccionado = int.Parse(grid.CurrentRow.Cells[0].Value.ToString());
+            var nombreSeleccionado = grid.CurrentRow.Cells[1].Value.ToString() + " " + grid.CurrentRow.Cells[2].Value.ToString();
             //preguntar si realmente desea eliminar al [nombre_tutor_seleccionado]
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro que desea borrar a {nombreTutorSeleccionado}?","Eliminar tutor",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show($"¿Está seguro que desea borrar a {nombreSeleccionado}?","Eliminar tutor",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             //si responde que si, instanciamos al objeto dbcontext, y eliminamos el tutor a través del id que obtuvimos
             if (respuesta == DialogResult.Yes)
             {
                 using (var db=new VacunWebContext())
                 {
-                    var tutor = db.Tutores.Find(idTutorSeleccionado);
-                    db.Tutores.Remove(tutor);
+                    var vacuna = db.Vacunas.Find(idSeleccionado);
+                    db.Vacunas.Remove(vacuna);
                     db.SaveChanges();
                 }
                 ActualizarGrilla();
@@ -77,7 +77,7 @@ namespace VacunDesktop.Presentation
         {
             using (var db=new VacunWebContext())
             {
-                grid.DataSource = db.Tutores.Where(t => t.Apellido.Contains(TxtBusqueda.Text) || t.Nombre.Contains(TxtBusqueda.Text) || t.Email.Contains(TxtBusqueda.Text)).ToList();
+                grid.DataSource = db.Vacunas.Where(t => t.Nombre.Contains(TxtBusqueda.Text)).ToList();
                 
             }
         }

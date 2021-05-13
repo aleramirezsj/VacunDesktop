@@ -9,8 +9,8 @@ namespace VacunDesktop.Models
     {
         public int Id { get; set; }
         public int CalendarioId { get; set; }
-        public Calendario Calendario { get; set; }
+        public virtual Calendario Calendario { get; set; }
         public int VacunaId { get; set; }
-        public Vacuna Vacuna { get; set; }
+        public virtual Vacuna Vacuna { get; set; }
     }
 }
