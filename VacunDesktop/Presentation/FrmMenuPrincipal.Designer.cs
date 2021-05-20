@@ -39,11 +39,11 @@
             this.MnuListadoVacunas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuListadoCalendarios = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuListadoCalendariosYVacunas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuListadoTutoresyPacientes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraHerramientas = new System.Windows.Forms.ToolStrip();
             this.BtnTutores = new System.Windows.Forms.ToolStripButton();
             this.BtnCalendarios = new System.Windows.Forms.ToolStripButton();
-            this.MnuListadoTutoresyPacientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.BarraHerramientas.SuspendLayout();
             this.SuspendLayout();
@@ -131,6 +131,13 @@
             this.MnuListadoCalendariosYVacunas.Text = "Listado Calendarios y Vacunas";
             this.MnuListadoCalendariosYVacunas.Click += new System.EventHandler(this.MnuListadoCalendariosYVacunas_Click);
             // 
+            // MnuListadoTutoresyPacientes
+            // 
+            this.MnuListadoTutoresyPacientes.Name = "MnuListadoTutoresyPacientes";
+            this.MnuListadoTutoresyPacientes.Size = new System.Drawing.Size(232, 22);
+            this.MnuListadoTutoresyPacientes.Text = "Listado de tutores y pacientes";
+            this.MnuListadoTutoresyPacientes.Click += new System.EventHandler(this.MnuListadoTutoresyPacientes_Click);
+            // 
             // mnuSalir
             // 
             this.mnuSalir.Name = "mnuSalir";
@@ -171,13 +178,6 @@
             this.BtnCalendarios.ToolTipText = "Gestión de calendarios";
             this.BtnCalendarios.Click += new System.EventHandler(this.BtnCalendarios_Click);
             // 
-            // MnuListadoTutoresyPacientes
-            // 
-            this.MnuListadoTutoresyPacientes.Name = "MnuListadoTutoresyPacientes";
-            this.MnuListadoTutoresyPacientes.Size = new System.Drawing.Size(232, 22);
-            this.MnuListadoTutoresyPacientes.Text = "Listado de tutores y pacientes";
-            this.MnuListadoTutoresyPacientes.Click += new System.EventHandler(this.MnuListadoTutoresyPacientes_Click);
-            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -186,7 +186,7 @@
             this.Controls.Add(this.BarraHerramientas);
             this.Controls.Add(this.menuPrincipal);
             this.Name = "FrmMenuPrincipal";
-            this.Text = "Aplicación de escritorio de Vacunas";
+            this.Text = "Aplicación de escritorio de Vacunas :: ISP20";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
