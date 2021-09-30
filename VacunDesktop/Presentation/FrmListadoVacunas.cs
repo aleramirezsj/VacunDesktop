@@ -30,7 +30,7 @@ namespace VacunDesktop.Presentation
         private void FrmListadoVacunas_Load(object sender, EventArgs e)
         {
             //abrimos el reporte utilizando la clase FileStream
-            using var fs = new FileStream(@"..\..\..\reportes\ReporteVacunas.rdlc", FileMode.Open);
+            using var fs = new FileStream(@"reportes\ReporteVacunas.rdlc", FileMode.Open);
             //asignamos el archivo a la propiedad LocalReport del objeto ReportViewer
             reporte.LocalReport.LoadReportDefinition(fs);
             //buscamos los datos que va a graficar el reporte

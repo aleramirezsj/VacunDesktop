@@ -39,6 +39,7 @@ namespace VacunDesktop.Presentation
                 TxtApellido.Text=tutor.Apellido  ;
                 TxtNombre.Text= tutor.Nombre;
                 TxtEmail.Text=tutor.Email ;
+                TxtContraseña.Text = tutor.Contraseña;
             }
         }
 
@@ -51,6 +52,7 @@ namespace VacunDesktop.Presentation
                 tutor.Apellido = TxtApellido.Text;
                 tutor.Nombre = TxtNombre.Text;
                 tutor.Email = TxtEmail.Text;
+                tutor.Contraseña = TxtContraseña.Text;
 
                 if (IdTutorEditar==null)
                     //agregamos el objeto Tutor al objeto DbContext

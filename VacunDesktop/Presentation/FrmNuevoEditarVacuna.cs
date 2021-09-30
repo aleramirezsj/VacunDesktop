@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
+using VacunDesktop.Inferfaces;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
 {
-    public partial class FrmNuevoEditarVacuna : Form
+    public partial class FrmNuevoEditarVacuna : Form, IFormBase
     {
-        public int? IdVacunaEditar { get; set; }
+        public int? IdEditar { get; set; }
         public Vacuna vacuna { get; set; }
         public FrmNuevoEditarVacuna(int? idVacunaSeleccionada = null)
         {
@@ -15,9 +16,9 @@ namespace VacunDesktop.Presentation
             //si recibimos el idTutorSeleccionado significa que vamos a editar
             if (idVacunaSeleccionada != null)
             {
-                IdVacunaEditar = idVacunaSeleccionada;
+                IdEditar = idVacunaSeleccionada;
                 //llamamos al metodo de carga datos
-                CargarDatosDelaVacunaEnPantalla();
+                CargarDatosEnPantalla();
                 this.Text = "Editar Vacuna";
             }
             else
@@ -27,16 +28,16 @@ namespace VacunDesktop.Presentation
             }
         }
 
-        private void CargarDatosDelaVacunaEnPantalla()
+        public void CargarDatosEnPantalla()
         {
             using (var db = new VacunWebContext())
             {
 
                 //colocamos en las cajas de texto los datos de la BBDD 
-                vacuna = db.Vacunas.Find(IdVacunaEditar);
+                vacuna = db.Vacunas.Find(IdEditar);
                 TxtNombreV.Text = vacuna.Nombre;
                 TxtBeneficios.Text = vacuna.Beneficios;
-                NUpDownPeriodo.Value = vacuna.PeriodoAplicación;
+                NUpDownPeriodo.Value = vacuna.PeriodoAplicacion;
             }
 
         }
@@ -47,11 +48,11 @@ namespace VacunDesktop.Presentation
 
                 //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto
                 vacuna.Nombre = TxtNombreV.Text;
-                vacuna.PeriodoAplicación = Convert.ToInt32(NUpDownPeriodo.Value);
+                vacuna.PeriodoAplicacion = Convert.ToInt32(NUpDownPeriodo.Value);
                 vacuna.Beneficios = TxtBeneficios.Text;
 
                 //si el id de la vacuna a editar es nulo agregamos una vacuna a la tabla
-                if (IdVacunaEditar == null)
+                if (IdEditar == null)
                     //lo agregamos al objeto Vacuna al objeto DbCOntext
                     db.Vacunas.Add(vacuna);
                 else //configuramos el almacenamiento de la modificacion si el id de la vacuna es distinto de nulo
@@ -96,7 +97,7 @@ namespace VacunDesktop.Presentation
 
         private bool CompararDatosFormularioConLosDeBBDD()
         {
-            return (vacuna.Nombre == TxtNombreV.Text && vacuna.Beneficios == TxtBeneficios.Text && vacuna.PeriodoAplicación == NUpDownPeriodo.Value);
+            return (vacuna.Nombre == TxtNombreV.Text && vacuna.Beneficios == TxtBeneficios.Text && vacuna.PeriodoAplicacion == NUpDownPeriodo.Value);
         }
 
         private void PreguntarSiSaleSinGuardar()
@@ -104,6 +105,15 @@ namespace VacunDesktop.Presentation
             DialogResult respuesta = MessageBox.Show($"¿Estas seguro que desea salir del formulario sin guardar los datos? ", "Datos sin Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta == DialogResult.Yes)
                 this.Close();
+        }
+
+        public void LimpiarDatosDeLaPantalla()
+        {
+            vacuna = new Vacuna(); 
+            TxtNombreV.Text = "";
+            TxtBeneficios.Text ="";
+            NUpDownPeriodo.Value = 0;
+            IdEditar = null;
         }
     }
 }

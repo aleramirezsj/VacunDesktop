@@ -44,6 +44,7 @@
             this.BarraHerramientas = new System.Windows.Forms.ToolStrip();
             this.BtnTutores = new System.Windows.Forms.ToolStripButton();
             this.BtnCalendarios = new System.Windows.Forms.ToolStripButton();
+            this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.BarraHerramientas.SuspendLayout();
             this.SuspendLayout();
@@ -140,6 +141,8 @@
             // 
             // mnuSalir
             // 
+            this.mnuSalir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirDelSistemaToolStripMenuItem});
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.Size = new System.Drawing.Size(41, 20);
             this.mnuSalir.Text = "Salir";
@@ -178,6 +181,13 @@
             this.BtnCalendarios.ToolTipText = "Gestión de calendarios";
             this.BtnCalendarios.Click += new System.EventHandler(this.BtnCalendarios_Click);
             // 
+            // salirDelSistemaToolStripMenuItem
+            // 
+            this.salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
+            this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
+            this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -214,6 +224,7 @@
         private System.Windows.Forms.ToolStripMenuItem MnuListadoCalendarios;
         private System.Windows.Forms.ToolStripMenuItem MnuListadoCalendariosYVacunas;
         private System.Windows.Forms.ToolStripMenuItem MnuListadoTutoresyPacientes;
+        private System.Windows.Forms.ToolStripMenuItem salirDelSistemaToolStripMenuItem;
     }
 }
 

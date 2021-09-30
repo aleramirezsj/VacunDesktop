@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Presentation\FrmNuevoEditarVacuna.resx" />
+    <None Remove="reportes\ReporteCalendarios.rdlc" />
+    <None Remove="reportes\ReporteCalendariosVacunas.rdlc" />
+    <None Remove="reportes\ReporteCalendariosVacunas2.rdlc" />
+    <None Remove="reportes\ReporteTutoresPacientes.rdlc" />
+    <None Remove="reportes\ReporteVacunas.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +35,24 @@
     <Reference Include="Microsoft.ReportViewer.WinForms">
       <HintPath>..\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="reportes\ReporteCalendarios.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\ReporteCalendariosVacunas.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\ReporteCalendariosVacunas2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\ReporteTutoresPacientes.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\ReporteVacunas.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

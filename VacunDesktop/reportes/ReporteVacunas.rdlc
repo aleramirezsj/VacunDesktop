@@ -82,21 +82,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PeriodoAplicación">
+                    <Textbox Name="PeriodoAplicacion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PeriodoAplicación.Value</Value>
+                              <Value>=Fields!PeriodoAplicacion.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PeriodoAplicación</rd:DefaultName>
+                      <rd:DefaultName>PeriodoAplicacion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -316,8 +316,8 @@
           <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PeriodoAplicación">
-          <DataField>PeriodoAplicación</DataField>
+        <Field Name="PeriodoAplicacion">
+          <DataField>PeriodoAplicacion</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Beneficios">

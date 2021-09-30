@@ -43,7 +43,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -250,7 +249,6 @@
       <ReportItems>
         <Line Name="Line1">
           <Top>1.21391cm</Top>
-          <Left>0cm</Left>
           <Height>0cm</Height>
           <Width>18.36208cm</Width>
           <Style>
@@ -303,7 +301,6 @@
       <ReportItems>
         <Line Name="Line2">
           <Top>0.28367cm</Top>
-          <Left>0cm</Left>
           <Height>0cm</Height>
           <Width>18.36208cm</Width>
           <Style>

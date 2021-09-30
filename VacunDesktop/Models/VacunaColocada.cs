@@ -9,10 +9,13 @@ namespace VacunDesktop.Models
     public class VacunaColocada
     {
         public int Id { get; set; }
+        [Required]
         public int VacunaId { get; set; }
         public Vacuna Vacuna { get; set; }
+        [Required]
         public int PacienteId { get; set; }
         public Paciente Paciente { get; set; }
+        [Required]
         public DateTime Fecha { get; set; }
     }
 }

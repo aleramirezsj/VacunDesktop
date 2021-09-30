@@ -29,7 +29,7 @@ namespace VacunDesktop.Presentation
         private void FrmCalendariosyVacunas_Load(object sender, EventArgs e)
         {
             //abrimos el reporte utilizando la clase FileStream
-            using var fs = new FileStream(@"..\..\..\reportes\ReporteCalendariosVacunas2.rdlc", FileMode.Open);
+            using var fs = new FileStream(@"reportes\ReporteCalendariosVacunas2.rdlc", FileMode.Open);
             //asignamos el archivo a la propiedad LocalReport del objeto ReportViewer
             reporte.LocalReport.LoadReportDefinition(fs);
             //buscamos los datos que va a graficar el reporte
@@ -47,7 +47,7 @@ namespace VacunDesktop.Presentation
                                          Nombre = calendario.Nombre,
                                          IdVacuna = vacuna.Id,
                                          NombreVacuna = detallecalendario.Vacuna.Nombre,
-                                         PeriodoAplicación = vacuna.PeriodoAplicación,
+                                         PeriodoAplicacion = vacuna.PeriodoAplicacion,
                                          Beneficios = vacuna.Beneficios
                                      };
 

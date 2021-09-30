@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace VacunDesktop.Models
 {
-    public class Vacuna
+    public class Vacuna:ModeloBase
     {
         public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
         [Required]
-        public int PeriodoAplicación { get; set; }
+        public int PeriodoAplicacion { get; set; }
         [Required]
         public string Beneficios { get; set; }
     }

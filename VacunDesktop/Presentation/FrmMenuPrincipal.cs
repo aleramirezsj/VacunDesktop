@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VacunDesktop.AdminData;
+using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
 {
     public partial class FrmMenuPrincipal : Form
     {
+        public static Usuario Usuario { get; set; } 
         public FrmMenuPrincipal()
         {
             InitializeComponent();
+            Usuario = new Usuario() { Id = 3, Nombre = "Ale", TipoUsuario=TipoUsuarioEnum.Administrador };
         }
 
         private void mnuItemTutores_Click(object sender, EventArgs e)
@@ -25,7 +29,7 @@ namespace VacunDesktop.Presentation
 
         private void MnuItemCalendarios_Click(object sender, EventArgs e)
         {
-            var frmCalendarios = new FrmCalendarios();
+            var frmCalendarios = new FrmCalendarios(new DbAdminCalendarios());
             frmCalendarios.ShowDialog();
         }
 
@@ -49,13 +53,17 @@ namespace VacunDesktop.Presentation
 
         private void BtnCalendarios_Click(object sender, EventArgs e)
         {
-            var frmCalendarios = new FrmCalendarios();
+            //var frmCalendarios = new FrmCalendarios(new DbAdminCalendarios());
+            //frmCalendarios.ShowDialog();
+            var frmCalendarios = new FrmBase(new DbAdminCalendarios(),new FrmNuevoEditarCalendario());
             frmCalendarios.ShowDialog();
         }
 
         private void MnuListadoVacunas_Click(object sender, EventArgs e)
         {
-            var frmListadoVacunas = new FrmListadoVacunas();
+            //var frmListadoVacunas = new FrmListadoVacunas();
+            //frmListadoVacunas.ShowDialog();
+            var frmListadoVacunas = new FrmBase(new DbAdminVacunas(),new FrmNuevoEditarVacuna());
             frmListadoVacunas.ShowDialog();
         }
 
@@ -75,6 +83,11 @@ namespace VacunDesktop.Presentation
         {
             var frmTutoresyPacientes = new FrmTutoresyPacientes();
             frmTutoresyPacientes.ShowDialog(); 
+        }
+
+        private void salirDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

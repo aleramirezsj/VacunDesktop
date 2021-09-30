@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VacunDesktop.Models
 {
-    public class Calendario
+    public class Calendario: ModeloBase
     {
         public int Id { get; set; }
         [Required]

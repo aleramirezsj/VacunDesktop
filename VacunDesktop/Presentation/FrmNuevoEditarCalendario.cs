@@ -6,12 +6,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using VacunDesktop.AdminData;
+using VacunDesktop.Inferfaces;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
 {
-    public partial class FrmNuevoEditarCalendario : Form
+    public partial class FrmNuevoEditarCalendario : Form , IFormBase
     {
+        DbAdminCalendarios dbAdmin = new DbAdminCalendarios();
         public int? IdEditar { get; set; }
         public Calendario calendario = new Calendario();
         public FrmNuevoEditarCalendario(int? idSeleccionado=null)
@@ -21,7 +24,7 @@ namespace VacunDesktop.Presentation
             LlenarComboSexo();
             if (idSeleccionado != null) { 
                 IdEditar = idSeleccionado;
-                CargarDatosDelCalendarioEnPantalla();
+                CargarDatosEnPantalla();
             }
 
         }
@@ -31,40 +34,33 @@ namespace VacunDesktop.Presentation
             cboSexo.DataSource= Enum.GetValues(typeof(SexoEnum));
         }
 
-        private void CargarDatosDelCalendarioEnPantalla()
+        public void CargarDatosEnPantalla()
         {
-            //instanciamos un objeto DbContext
-            using (var db = new VacunWebContext())
-            {
-                //a través del IdCalendarioEditar buscamos los datos del Calendario en la base de datos
-                calendario=db.Calendarios.Find(IdEditar);
+                //a través del IdCalendarioEditar buscamos los datos del Calendario en el repositorio
+                calendario=(Calendario)dbAdmin.Obtener(IdEditar);
                 TxtNombre.Text= calendario.Nombre;
                 cboSexo.SelectedIndex= ((int)calendario.SexoPaciente)-1;
                 chkPrematuro.Checked = calendario.PrematuroPaciente;
-            }
+            
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            //instanciamos un objeto DbContext
-            using (var db = new VacunWebContext())
+            //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto
+            calendario.Nombre = TxtNombre.Text;
+            calendario.SexoPaciente = (SexoEnum)cboSexo.SelectedValue;
+            calendario.PrematuroPaciente = chkPrematuro.Checked;
+
+            if (IdEditar==null)
+                //agregamos el objeto Calendario al repositorio
+                dbAdmin.Agregar(calendario);
+            else //configuramos el almacenamiento de la modificación
             {
-                //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto
-                calendario.Nombre = TxtNombre.Text;
-                calendario.SexoPaciente = (SexoEnum)cboSexo.SelectedValue;
-                calendario.PrematuroPaciente = chkPrematuro.Checked;
-
-                if (IdEditar==null)
-                    //agregamos el objeto Tutor al objeto DbContext
-                    db.Calendarios.Add(calendario);
-                else //configuramos el almacenamiento de la modificación
-                {
-                    db.Entry(calendario).State = EntityState.Modified;
-                }
-
-                //guardamos los cambios
-                db.SaveChanges();
+                dbAdmin.Actualizar(calendario);
             }
+
+               
+            
             //cerramos el formulario
             this.Close();
 
@@ -113,6 +109,15 @@ namespace VacunDesktop.Presentation
         private bool CompararDatosFormularioConLosDeBBDD()
         {
             return (calendario.Nombre == TxtNombre.Text && calendario.SexoPaciente == (SexoEnum)cboSexo.SelectedValue && calendario.PrematuroPaciente == chkPrematuro.Checked);
+        }
+
+        public void LimpiarDatosDeLaPantalla()
+        {
+            calendario = new Calendario();
+            TxtNombre.Text = "";
+            cboSexo.SelectedIndex = 0;
+            chkPrematuro.Checked = false;
+            IdEditar = null;
         }
     }
 }

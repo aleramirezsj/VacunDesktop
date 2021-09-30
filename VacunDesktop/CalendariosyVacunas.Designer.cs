@@ -1001,7 +1001,7 @@ namespace VacunDesktop {
             
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnPeriodoAplicación;
+            private global::System.Data.DataColumn columnPeriodoAplicacion;
             
             private global::System.Data.DataColumn columnBeneficios;
             
@@ -1056,9 +1056,9 @@ namespace VacunDesktop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PeriodoAplicaciónColumn {
+            public global::System.Data.DataColumn PeriodoAplicacionColumn {
                 get {
-                    return this.columnPeriodoAplicación;
+                    return this.columnPeriodoAplicacion;
                 }
             }
             
@@ -1107,12 +1107,12 @@ namespace VacunDesktop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VacunasRow AddVacunasRow(string Nombre, int PeriodoAplicación, string Beneficios) {
+            public VacunasRow AddVacunasRow(string Nombre, int PeriodoAplicacion, string Beneficios) {
                 VacunasRow rowVacunasRow = ((VacunasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Nombre,
-                        PeriodoAplicación,
+                        PeriodoAplicacion,
                         Beneficios};
                 rowVacunasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVacunasRow);
@@ -1145,7 +1145,7 @@ namespace VacunDesktop {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnPeriodoAplicación = base.Columns["PeriodoAplicación"];
+                this.columnPeriodoAplicacion = base.Columns["PeriodoAplicacion"];
                 this.columnBeneficios = base.Columns["Beneficios"];
             }
             
@@ -1156,8 +1156,8 @@ namespace VacunDesktop {
                 base.Columns.Add(this.columnId);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnPeriodoAplicación = new global::System.Data.DataColumn("PeriodoAplicación", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPeriodoAplicación);
+                this.columnPeriodoAplicacion = new global::System.Data.DataColumn("PeriodoAplicacion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriodoAplicacion);
                 this.columnBeneficios = new global::System.Data.DataColumn("Beneficios", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBeneficios);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -1170,7 +1170,7 @@ namespace VacunDesktop {
                 this.columnId.Unique = true;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 2147483647;
-                this.columnPeriodoAplicación.AllowDBNull = false;
+                this.columnPeriodoAplicacion.AllowDBNull = false;
                 this.columnBeneficios.AllowDBNull = false;
                 this.columnBeneficios.MaxLength = 2147483647;
             }
@@ -1533,12 +1533,12 @@ namespace VacunDesktop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int PeriodoAplicación {
+            public int PeriodoAplicacion {
                 get {
-                    return ((int)(this[this.tableVacunas.PeriodoAplicaciónColumn]));
+                    return ((int)(this[this.tableVacunas.PeriodoAplicacionColumn]));
                 }
                 set {
-                    this[this.tableVacunas.PeriodoAplicaciónColumn] = value;
+                    this[this.tableVacunas.PeriodoAplicacionColumn] = value;
                 }
             }
             
@@ -2424,35 +2424,35 @@ SELECT Id, CalendarioId, VacunaId FROM DetalleCalendarios WHERE (Id = @Id)";
             tableMapping.DataSetTable = "Vacunas";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("PeriodoAplicación", "PeriodoAplicación");
+            tableMapping.ColumnMappings.Add("PeriodoAplicacion", "PeriodoAplicacion");
             tableMapping.ColumnMappings.Add("Beneficios", "Beneficios");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Vacunas] WHERE (([Id] = @Original_Id) AND ([PeriodoAplicación]" +
-                " = @Original_PeriodoAplicación))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Vacunas] WHERE (([Id] = @Original_Id) AND ([PeriodoAplicacion]" +
+                " = @Original_PeriodoAplicacion))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PeriodoAplicación", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicación", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PeriodoAplicacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Vacunas] ([Nombre], [PeriodoAplicación], [Beneficios]) VALUES " +
-                "(@Nombre, @PeriodoAplicación, @Beneficios);\r\nSELECT Id, Nombre, PeriodoAplicació" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Vacunas] ([Nombre], [PeriodoAplicacion], [Beneficios]) VALUES " +
+                "(@Nombre, @PeriodoAplicacion, @Beneficios);\r\nSELECT Id, Nombre, PeriodoAplicacio" +
                 "n, Beneficios FROM Vacunas WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PeriodoAplicación", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicación", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PeriodoAplicacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Beneficios", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Beneficios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Vacunas] SET [Nombre] = @Nombre, [PeriodoAplicación] = @PeriodoAplicación, [Beneficios] = @Beneficios WHERE (([Id] = @Original_Id) AND ([PeriodoAplicación] = @Original_PeriodoAplicación));
-SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Vacunas] SET [Nombre] = @Nombre, [PeriodoAplicacion] = @PeriodoAplicacion, [Beneficios] = @Beneficios WHERE (([Id] = @Original_Id) AND ([PeriodoAplicacion] = @Original_PeriodoAplicacion));
+SELECT Id, Nombre, PeriodoAplicacion, Beneficios FROM Vacunas WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PeriodoAplicación", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicación", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PeriodoAplicacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Beneficios", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Beneficios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PeriodoAplicación", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicación", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PeriodoAplicacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PeriodoAplicacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2469,7 +2469,7 @@ SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)"
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM dbo.Vacunas";
+            this._commandCollection[0].CommandText = "SELECT Id, Nombre, PeriodoAplicacion, Beneficios FROM dbo.Vacunas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2530,9 +2530,9 @@ SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, int Original_PeriodoAplicación) {
+        public virtual int Delete(int Original_Id, int Original_PeriodoAplicacion) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PeriodoAplicación));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PeriodoAplicacion));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2553,14 +2553,14 @@ SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nombre, int PeriodoAplicación, string Beneficios) {
+        public virtual int Insert(string Nombre, int PeriodoAplicacion, string Beneficios) {
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Nombre));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PeriodoAplicación));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PeriodoAplicacion));
             if ((Beneficios == null)) {
                 throw new global::System.ArgumentNullException("Beneficios");
             }
@@ -2587,14 +2587,14 @@ SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nombre, int PeriodoAplicación, string Beneficios, int Original_Id, int Original_PeriodoAplicación, int Id) {
+        public virtual int Update(string Nombre, int PeriodoAplicacion, string Beneficios, int Original_Id, int Original_PeriodoAplicacion, int Id) {
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Nombre));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PeriodoAplicación));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PeriodoAplicacion));
             if ((Beneficios == null)) {
                 throw new global::System.ArgumentNullException("Beneficios");
             }
@@ -2602,7 +2602,7 @@ SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)"
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Beneficios));
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PeriodoAplicación));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PeriodoAplicacion));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2624,8 +2624,8 @@ SELECT Id, Nombre, PeriodoAplicación, Beneficios FROM Vacunas WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nombre, int PeriodoAplicación, string Beneficios, int Original_Id, int Original_PeriodoAplicación) {
-            return this.Update(Nombre, PeriodoAplicación, Beneficios, Original_Id, Original_PeriodoAplicación, Original_Id);
+        public virtual int Update(string Nombre, int PeriodoAplicacion, string Beneficios, int Original_Id, int Original_PeriodoAplicacion) {
+            return this.Update(Nombre, PeriodoAplicacion, Beneficios, Original_Id, Original_PeriodoAplicacion, Original_Id);
         }
     }
     

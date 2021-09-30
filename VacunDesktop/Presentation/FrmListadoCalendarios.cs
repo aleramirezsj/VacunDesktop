@@ -26,10 +26,12 @@ namespace VacunDesktop.Presentation
             Controls.Add(reporte);
         }
 
+
+
         private void FrmListadoCalendarios_Load(object sender, EventArgs e)
         {
             //abrimos el reporte utilizando la clase FileStream
-            using var fs = new FileStream(@"..\..\..\reportes\ReporteCalendarios.rdlc", FileMode.Open);
+            using var fs = new FileStream(@"reportes\ReporteCalendarios.rdlc", FileMode.Open);
             //asignamos el archivo a la propiedad LocalReport del objeto ReportViewer
             reporte.LocalReport.LoadReportDefinition(fs);
             //buscamos los datos que va a graficar el reporte
@@ -40,5 +42,7 @@ namespace VacunDesktop.Presentation
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DataSetCalendarios", calendarios));
             reporte.RefreshReport();
         }
+
+
     }
 }

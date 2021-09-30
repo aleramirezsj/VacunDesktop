@@ -36,12 +36,14 @@
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
+            this.TxtContraseña = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
-            this.LblNombre.Location = new System.Drawing.Point(140, 91);
+            this.LblNombre.Location = new System.Drawing.Point(140, 50);
             this.LblNombre.Name = "LblNombre";
             this.LblNombre.Size = new System.Drawing.Size(54, 15);
             this.LblNombre.TabIndex = 0;
@@ -49,7 +51,7 @@
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(211, 82);
+            this.TxtNombre.Location = new System.Drawing.Point(223, 42);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(181, 23);
             this.TxtNombre.TabIndex = 0;
@@ -57,7 +59,7 @@
             // LblApellido
             // 
             this.LblApellido.AutoSize = true;
-            this.LblApellido.Location = new System.Drawing.Point(140, 142);
+            this.LblApellido.Location = new System.Drawing.Point(140, 101);
             this.LblApellido.Name = "LblApellido";
             this.LblApellido.Size = new System.Drawing.Size(54, 15);
             this.LblApellido.TabIndex = 0;
@@ -65,7 +67,7 @@
             // 
             // TxtApellido
             // 
-            this.TxtApellido.Location = new System.Drawing.Point(211, 133);
+            this.TxtApellido.Location = new System.Drawing.Point(223, 93);
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.Size = new System.Drawing.Size(181, 23);
             this.TxtApellido.TabIndex = 1;
@@ -73,7 +75,7 @@
             // LblEmail
             // 
             this.LblEmail.AutoSize = true;
-            this.LblEmail.Location = new System.Drawing.Point(140, 194);
+            this.LblEmail.Location = new System.Drawing.Point(140, 153);
             this.LblEmail.Name = "LblEmail";
             this.LblEmail.Size = new System.Drawing.Size(39, 15);
             this.LblEmail.TabIndex = 0;
@@ -81,7 +83,7 @@
             // 
             // TxtEmail
             // 
-            this.TxtEmail.Location = new System.Drawing.Point(211, 185);
+            this.TxtEmail.Location = new System.Drawing.Point(223, 145);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(181, 23);
             this.TxtEmail.TabIndex = 2;
@@ -106,11 +108,29 @@
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
+            // TxtContraseña
+            // 
+            this.TxtContraseña.Location = new System.Drawing.Point(223, 194);
+            this.TxtContraseña.Name = "TxtContraseña";
+            this.TxtContraseña.Size = new System.Drawing.Size(181, 23);
+            this.TxtContraseña.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(140, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Contraseña:";
+            // 
             // FrmNuevoEditarTutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 318);
+            this.Controls.Add(this.TxtContraseña);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.TxtEmail);
@@ -141,5 +161,7 @@
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.TextBox TxtContraseña;
+        private System.Windows.Forms.Label label1;
     }
 }

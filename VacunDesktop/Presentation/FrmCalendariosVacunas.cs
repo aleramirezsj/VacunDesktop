@@ -51,7 +51,7 @@ namespace VacunDesktop.Presentation
                                           Nombre = calendario.Nombre,
                                           IdVacuna = vacuna.Id,
                                           NombreVacuna = detallecalendario.Vacuna.Nombre,
-                                          PeriodoAplicación = vacuna.PeriodoAplicación,
+                                          PeriodoAplicacion = vacuna.PeriodoAplicacion,
                                           Beneficios = vacuna.Beneficios
                                       };
 

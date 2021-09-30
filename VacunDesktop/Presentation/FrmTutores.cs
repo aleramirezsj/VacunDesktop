@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using VacunDesktop.ExtensionMethods;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
@@ -27,6 +28,7 @@ namespace VacunDesktop.Presentation
         {
             using (var db = new VacunWebContext()) { 
                 gridTutores.DataSource = db.Tutores.ToList();
+                gridTutores.OcultarColumnas();
             }
         }
 

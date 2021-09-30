@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace VacunDesktop.Models
 {
-    public class Tutor: ModeloBase
+    public class Usuario : ModeloBase
     {
         public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
         [Required]
-        public string Apellido { get; set; }
+        public string User { get; set; }
         [Required]
-        public string Email { get; set; }
+        public string Password { get; set; }
         [Required]
-        public string Contraseña { get; set; }
-
-        public  ICollection<Paciente> Pacientes { get; set; }
+        public TipoUsuarioEnum TipoUsuario { get; set; }
+        public override string  ToString()
+        {
+            return Nombre;
+        }
     }
 }
