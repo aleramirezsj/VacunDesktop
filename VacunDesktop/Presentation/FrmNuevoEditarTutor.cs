@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using VacunDesktop.ExtensionMethods;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
@@ -82,7 +83,7 @@ namespace VacunDesktop.Presentation
                     this.Close();
                 else
                 {
-                    PreguntarSiSaleSinGuardar();
+                    this.MensajeAdvertenciaDeSalida();
                 }
             } else  //MODIFICANDO A UN TUTOR EXISTENTE
             {
@@ -92,7 +93,7 @@ namespace VacunDesktop.Presentation
                 }
                 else
                 {
-                    PreguntarSiSaleSinGuardar();
+                    this.MensajeAdvertenciaDeSalida();
                 }
             }
 
@@ -100,15 +101,7 @@ namespace VacunDesktop.Presentation
             
         }
 
-        private void PreguntarSiSaleSinGuardar()
-        {
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro que desea salir del formulario sin guardar los datos?", "Datos sin guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //si responde que si, instanciamos al objeto dbcontext, y eliminamos el tutor a través del id que obtuvimos
-            if (respuesta == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
+
 
         private bool CompararDatosFormularioConLosDeBBDD()
         {

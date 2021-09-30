@@ -18,7 +18,10 @@ namespace VacunDesktop.Presentation
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-            Usuario = new Usuario() { Id = 3, Nombre = "Ale", TipoUsuario=TipoUsuarioEnum.Administrador };
+            if (Properties.Settings.Default.imagenFondo != "")
+                BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);
+
+
         }
 
         private void mnuItemTutores_Click(object sender, EventArgs e)
@@ -88,6 +91,31 @@ namespace VacunDesktop.Presentation
         private void salirDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmParámetros = new FrmParámetros();
+            frmParámetros.ShowDialog();
+        }
+
+        private void FrmMenuPrincipal_Activated(object sender, EventArgs e)
+        {
+            if (Usuario == null)
+            {
+                //si no hay nadie logeado, entonces mostramos el formulario de Login
+                var frmLogin = new FrmLogin();
+                frmLogin.ShowDialog();
+                if (Usuario != null)
+                {
+                    //dependiendo el tipo de usuario, habilitamos los distintos menues para que tengan acceso
+                    configuraciónToolStripMenuItem.Enabled = Usuario.TipoUsuario == TipoUsuarioEnum.Administrador ? true : false;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using VacunDesktop.Core;
 
 namespace VacunDesktop.Models
 {
@@ -9,7 +10,7 @@ namespace VacunDesktop.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=173.255.225.72; Initial Catalog = VacunWebContext; User Id = sa; Password = GQ60Vb7w; MultipleActiveResultSets = True");
+            optionsBuilder.UseSqlServer(@HelperVacunas.ObtenerCadenaDeConexión());
             //optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=VacunWebContext; User Id = sa; Password = 123; MultipleActiveResultSets = True;");
             /* optionsBuilder.UseMySql(@"server=192.168.1.100;user=admin;password=123;port=3306;database=VacunWebContext;", mySqlOptions => mySqlOptions
                              .ServerVersion(new Version(5, 7, 31), ServerType.MySql)

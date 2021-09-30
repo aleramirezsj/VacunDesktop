@@ -40,11 +40,13 @@
             this.MnuListadoCalendarios = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuListadoCalendariosYVacunas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuListadoTutoresyPacientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parámetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraHerramientas = new System.Windows.Forms.ToolStrip();
             this.BtnTutores = new System.Windows.Forms.ToolStripButton();
             this.BtnCalendarios = new System.Windows.Forms.ToolStripButton();
-            this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             this.BarraHerramientas.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +56,7 @@
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItemPrincipal,
             this.mnuItemListados,
+            this.configuraciónToolStripMenuItem,
             this.mnuSalir});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
@@ -139,6 +142,21 @@
             this.MnuListadoTutoresyPacientes.Text = "Listado de tutores y pacientes";
             this.MnuListadoTutoresyPacientes.Click += new System.EventHandler(this.MnuListadoTutoresyPacientes_Click);
             // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parámetrosToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // parámetrosToolStripMenuItem
+            // 
+            this.parámetrosToolStripMenuItem.Name = "parámetrosToolStripMenuItem";
+            this.parámetrosToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.parámetrosToolStripMenuItem.Text = "Parámetros";
+            this.parámetrosToolStripMenuItem.Click += new System.EventHandler(this.parámetrosToolStripMenuItem_Click);
+            // 
             // mnuSalir
             // 
             this.mnuSalir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -146,6 +164,13 @@
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.Size = new System.Drawing.Size(41, 20);
             this.mnuSalir.Text = "Salir";
+            // 
+            // salirDelSistemaToolStripMenuItem
+            // 
+            this.salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
+            this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
+            this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
             // 
             // BarraHerramientas
             // 
@@ -181,13 +206,6 @@
             this.BtnCalendarios.ToolTipText = "Gestión de calendarios";
             this.BtnCalendarios.Click += new System.EventHandler(this.BtnCalendarios_Click);
             // 
-            // salirDelSistemaToolStripMenuItem
-            // 
-            this.salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
-            this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
-            this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
-            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -198,6 +216,7 @@
             this.Name = "FrmMenuPrincipal";
             this.Text = "Aplicación de escritorio de Vacunas :: ISP20";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.FrmMenuPrincipal_Activated);
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
             this.BarraHerramientas.ResumeLayout(false);
@@ -225,6 +244,8 @@
         private System.Windows.Forms.ToolStripMenuItem MnuListadoCalendariosYVacunas;
         private System.Windows.Forms.ToolStripMenuItem MnuListadoTutoresyPacientes;
         private System.Windows.Forms.ToolStripMenuItem salirDelSistemaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parámetrosToolStripMenuItem;
     }
 }
 

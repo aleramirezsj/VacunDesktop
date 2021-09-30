@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VacunDesktop.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="servidor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">173.255.225.72</Value>
+    </Setting>
+    <Setting Name="bbdd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VacunWebContext</Value>
+    </Setting>
+    <Setting Name="usuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="contraseña" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GQ60Vb7w</Value>
+    </Setting>
+    <Setting Name="imagenFondo" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
+using VacunDesktop.ExtensionMethods;
 using VacunDesktop.Inferfaces;
 using VacunDesktop.Models;
 
@@ -81,7 +82,8 @@ namespace VacunDesktop.Presentation
 
                 else
                 {
-                    PreguntarSiSaleSinGuardar();
+                    this.MensajeAdvertenciaDeSalida();
+
                 }
             }
             else  //CAMINO SI ES MODIFICANDO A UNA VACUNA EXISTENTE
@@ -90,7 +92,8 @@ namespace VacunDesktop.Presentation
                     this.Close();
                 else
                 {
-                    PreguntarSiSaleSinGuardar();
+                    this.MensajeAdvertenciaDeSalida();
+
                 }
             }
         }
@@ -100,12 +103,7 @@ namespace VacunDesktop.Presentation
             return (vacuna.Nombre == TxtNombreV.Text && vacuna.Beneficios == TxtBeneficios.Text && vacuna.PeriodoAplicacion == NUpDownPeriodo.Value);
         }
 
-        private void PreguntarSiSaleSinGuardar()
-        {
-            DialogResult respuesta = MessageBox.Show($"¿Estas seguro que desea salir del formulario sin guardar los datos? ", "Datos sin Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (respuesta == DialogResult.Yes)
-                this.Close();
-        }
+
 
         public void LimpiarDatosDeLaPantalla()
         {

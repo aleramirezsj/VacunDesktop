@@ -38,6 +38,7 @@ namespace VacunDesktop.Presentation
                 TmrCronometro.Enabled = false;
                 var frmMenuPrincipal = new FrmMenuPrincipal();
                 frmMenuPrincipal.ShowDialog();
+
                 this.Close();
             }
         }
