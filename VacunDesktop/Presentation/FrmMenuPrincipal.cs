@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VacunDesktop.AdminData;
+using VacunDesktop.Core;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
@@ -18,8 +20,11 @@ namespace VacunDesktop.Presentation
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-            if (Properties.Settings.Default.imagenFondo != "")
-                BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);
+            Image imagenFondo = HelperVacunas.RecuperarImagenDeArchivoDeRecursos("fondo");
+            if (imagenFondo != null)
+                BackgroundImage = imagenFondo;
+            /*if ((Properties.Settings.Default.imagenFondo != "")&&File.Exists(Properties.Settings.Default.imagenFondo))
+                BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);*/
 
 
         }
@@ -95,7 +100,9 @@ namespace VacunDesktop.Presentation
 
         private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frmParámetros = new FrmParámetros();
+            //le pasamos la referencia al propio formulario para poder manipularlo desde el
+            //formulario de parámetros
+            var frmParámetros = new FrmParámetros(this);
             frmParámetros.ShowDialog();
         }
 

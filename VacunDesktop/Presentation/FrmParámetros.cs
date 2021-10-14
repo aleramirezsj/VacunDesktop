@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
+using VacunDesktop.Core;
 using VacunDesktop.ExtensionMethods;
 
 namespace VacunDesktop.Presentation
 {
     public partial class FrmParámetros : Form
     {
-        public FrmParámetros()
+        Form FrmMenuPrincipal;
+        public FrmParámetros(Form form)
         {
             InitializeComponent();
             CargarDatosEnPantalla();
+            FrmMenuPrincipal = form;
         }
 
         private void CargarDatosEnPantalla()
@@ -23,6 +27,13 @@ namespace VacunDesktop.Presentation
             TxtServidor.Text = Properties.Settings.Default.servidor;
             TxtBbdd.Text = Properties.Settings.Default.bbdd;
             TxtContraseña.Text = Properties.Settings.Default.contraseña;
+            if (Properties.Settings.Default.imagenFondo != "")
+            {
+                //PbxImagen.Image = Image.FromFile(Properties.Settings.Default.imagenFondo);
+                PbxImagen.Image = HelperVacunas.RecuperarImagenDeArchivoDeRecursos("fondo");
+                TxtImagen.Text = Properties.Settings.Default.imagenFondo;
+            }
+                
         }
 
         private void BtnGuardarModificar_Click(object sender, EventArgs e)
@@ -30,20 +41,32 @@ namespace VacunDesktop.Presentation
             if (BtnGuardarModificar.Text == "Modificar")
             {
                 BtnGuardarModificar.Text = "Guardar";
+                BtnExaminar.Enabled = true;
                 this.HabilitarDeshabilitarTextBox(true);
             }
             else
             {
+                BtnExaminar.Enabled = false;
                 Properties.Settings.Default.usuario = TxtUsuario.Text;
-                Properties.Settings.Default.servidor=TxtServidor.Text ;
-                Properties.Settings.Default.bbdd=TxtBbdd.Text ;
-                Properties.Settings.Default.contraseña=TxtContraseña.Text ;
+                Properties.Settings.Default.servidor = TxtServidor.Text;
+                Properties.Settings.Default.bbdd = TxtBbdd.Text;
+                Properties.Settings.Default.contraseña = TxtContraseña.Text;
                 Properties.Settings.Default.imagenFondo = TxtImagen.Text;
                 BtnGuardarModificar.Text = "Modificar";
                 this.HabilitarDeshabilitarTextBox(false);
                 Properties.Settings.Default.Save();
+                if (Properties.Settings.Default.imagenFondo != "")
+                {
+                    HelperVacunas.AlmacenarImagenEnArchivoDeRecursos(Image.FromFile(Properties.Settings.Default.imagenFondo));
+                    FrmMenuPrincipal.BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);
+                }
             }
         }
+
+
+
+
+
 
         private void BtnExaminar_Click(object sender, EventArgs e)
         {

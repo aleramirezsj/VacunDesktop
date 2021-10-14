@@ -115,7 +115,7 @@ namespace VacunDesktop.Presentation
             // 
             // BtnGuardarModificar
             // 
-            this.BtnGuardarModificar.Location = new System.Drawing.Point(185, 341);
+            this.BtnGuardarModificar.Location = new System.Drawing.Point(156, 365);
             this.BtnGuardarModificar.Name = "BtnGuardarModificar";
             this.BtnGuardarModificar.Size = new System.Drawing.Size(86, 26);
             this.BtnGuardarModificar.TabIndex = 8;
@@ -142,6 +142,7 @@ namespace VacunDesktop.Presentation
             // 
             // BtnExaminar
             // 
+            this.BtnExaminar.Enabled = false;
             this.BtnExaminar.Location = new System.Drawing.Point(302, 209);
             this.BtnExaminar.Name = "BtnExaminar";
             this.BtnExaminar.Size = new System.Drawing.Size(69, 26);
@@ -154,7 +155,7 @@ namespace VacunDesktop.Presentation
             // 
             this.PbxImagen.Location = new System.Drawing.Point(113, 238);
             this.PbxImagen.Name = "PbxImagen";
-            this.PbxImagen.Size = new System.Drawing.Size(110, 97);
+            this.PbxImagen.Size = new System.Drawing.Size(172, 121);
             this.PbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbxImagen.TabIndex = 12;
             this.PbxImagen.TabStop = false;
@@ -163,7 +164,7 @@ namespace VacunDesktop.Presentation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 375);
+            this.ClientSize = new System.Drawing.Size(404, 403);
             this.Controls.Add(this.PbxImagen);
             this.Controls.Add(this.BtnExaminar);
             this.Controls.Add(this.TxtImagen);

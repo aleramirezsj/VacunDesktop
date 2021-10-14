@@ -210,6 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::VacunDesktop.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BarraHerramientas);
             this.Controls.Add(this.menuPrincipal);

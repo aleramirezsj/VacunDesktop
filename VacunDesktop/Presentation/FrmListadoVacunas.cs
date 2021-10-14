@@ -39,6 +39,7 @@ namespace VacunDesktop.Presentation
             //asignamos los datos a la propiedad DataSources del ReportViewer, utilizando
             //un objeto del tipo ReportDataSource
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DataSetVacunas", vacunas));
+            reporte.SetDisplayMode(DisplayMode.PrintLayout);
             reporte.RefreshReport();
         }
     }
