@@ -27,6 +27,10 @@ namespace VacunDesktop.Presentation
             TxtServidor.Text = Properties.Settings.Default.servidor;
             TxtBbdd.Text = Properties.Settings.Default.bbdd;
             TxtContraseña.Text = Properties.Settings.Default.contraseña;
+            if (Properties.Settings.Default.localdb)
+                RbtLocalDb.Checked = true;
+            else
+                RbtServidor.Checked = true;
             if (Properties.Settings.Default.imagenFondo != "")
             {
                 //PbxImagen.Image = Image.FromFile(Properties.Settings.Default.imagenFondo);
@@ -43,6 +47,7 @@ namespace VacunDesktop.Presentation
                 BtnGuardarModificar.Text = "Guardar";
                 BtnExaminar.Enabled = true;
                 this.HabilitarDeshabilitarTextBox(true);
+                this.HabilitarDeshabilitarRadioButton(true);
             }
             else
             {
@@ -52,8 +57,10 @@ namespace VacunDesktop.Presentation
                 Properties.Settings.Default.bbdd = TxtBbdd.Text;
                 Properties.Settings.Default.contraseña = TxtContraseña.Text;
                 Properties.Settings.Default.imagenFondo = TxtImagen.Text;
+                Properties.Settings.Default.localdb = RbtLocalDb.Checked;
                 BtnGuardarModificar.Text = "Modificar";
                 this.HabilitarDeshabilitarTextBox(false);
+                this.HabilitarDeshabilitarRadioButton(false);
                 Properties.Settings.Default.Save();
                 if (Properties.Settings.Default.imagenFondo != "")
                 {

@@ -18,6 +18,17 @@ namespace VacunDesktop.ExtensionMethods
                 }
             }
         }
+        public static void HabilitarDeshabilitarRadioButton(this Form form, bool valor)
+        {
+            foreach (Object obj in form.Controls)
+            {
+                if (obj.GetType().Name == "RadioButton")
+                {
+                    TextBox o = (TextBox)obj;
+                    o.Enabled = valor;
+                }
+            }
+        }
         /// <summary>
         /// Fecha: 30/09/2021
         /// Creamos un método genérico que pregunte (en formularios y momentos especiales)

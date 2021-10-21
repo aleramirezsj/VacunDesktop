@@ -80,11 +80,21 @@ namespace VacunDesktop.Core
         }
         public static string ObtenerCadenaDeConexión()
         {
-            string cadenaConexion = "Server= " + Properties.Settings.Default.servidor;
-            cadenaConexion += " ;Initial Catalog = " + Properties.Settings.Default.bbdd;
-            cadenaConexion += " ;User Id = " + Properties.Settings.Default.usuario;
-            cadenaConexion += " ;Password = " + Properties.Settings.Default.contraseña;
-            cadenaConexion += "; MultipleActiveResultSets = True";
+            string cadenaConexion;
+            if (Properties.Settings.Default.localdb)
+            {
+                string carpetalocal= Directory.GetCurrentDirectory();
+                cadenaConexion = $@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = {carpetalocal}\App_Data\VacunDesktopContext.mdf; Integrated Security = True; Connect Timeout = 30";
+            }
+            else
+            {
+                cadenaConexion = "Server= " + Properties.Settings.Default.servidor;
+                cadenaConexion += " ;Initial Catalog = " + Properties.Settings.Default.bbdd;
+                cadenaConexion += " ;User Id = " + Properties.Settings.Default.usuario;
+                cadenaConexion += " ;Password = " + Properties.Settings.Default.contraseña;
+                cadenaConexion += "; MultipleActiveResultSets = True";
+            }
+            
             return cadenaConexion;
         }
     }

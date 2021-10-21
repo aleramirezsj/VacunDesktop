@@ -42,6 +42,9 @@ namespace VacunDesktop.Presentation
             this.TxtImagen = new System.Windows.Forms.TextBox();
             this.BtnExaminar = new System.Windows.Forms.Button();
             this.PbxImagen = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.RbtServidor = new System.Windows.Forms.RadioButton();
+            this.RbtLocalDb = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.PbxImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,7 +118,7 @@ namespace VacunDesktop.Presentation
             // 
             // BtnGuardarModificar
             // 
-            this.BtnGuardarModificar.Location = new System.Drawing.Point(156, 365);
+            this.BtnGuardarModificar.Location = new System.Drawing.Point(152, 401);
             this.BtnGuardarModificar.Name = "BtnGuardarModificar";
             this.BtnGuardarModificar.Size = new System.Drawing.Size(86, 26);
             this.BtnGuardarModificar.TabIndex = 8;
@@ -160,11 +163,46 @@ namespace VacunDesktop.Presentation
             this.PbxImagen.TabIndex = 12;
             this.PbxImagen.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 375);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Conexión a datos";
+            // 
+            // RbtServidor
+            // 
+            this.RbtServidor.AutoSize = true;
+            this.RbtServidor.Enabled = false;
+            this.RbtServidor.Location = new System.Drawing.Point(114, 375);
+            this.RbtServidor.Name = "RbtServidor";
+            this.RbtServidor.Size = new System.Drawing.Size(68, 19);
+            this.RbtServidor.TabIndex = 14;
+            this.RbtServidor.Text = "Servidor";
+            this.RbtServidor.UseVisualStyleBackColor = true;
+            // 
+            // RbtLocalDb
+            // 
+            this.RbtLocalDb.AutoSize = true;
+            this.RbtLocalDb.Enabled = false;
+            this.RbtLocalDb.Location = new System.Drawing.Point(214, 376);
+            this.RbtLocalDb.Name = "RbtLocalDb";
+            this.RbtLocalDb.Size = new System.Drawing.Size(125, 19);
+            this.RbtLocalDb.TabIndex = 15;
+            this.RbtLocalDb.TabStop = true;
+            this.RbtLocalDb.Text = "Base de datos local";
+            this.RbtLocalDb.UseVisualStyleBackColor = true;
+            // 
             // FrmParámetros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 403);
+            this.ClientSize = new System.Drawing.Size(404, 439);
+            this.Controls.Add(this.RbtLocalDb);
+            this.Controls.Add(this.RbtServidor);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.PbxImagen);
             this.Controls.Add(this.BtnExaminar);
             this.Controls.Add(this.TxtImagen);
@@ -202,5 +240,8 @@ namespace VacunDesktop.Presentation
         private System.Windows.Forms.TextBox TxtImagen;
         private System.Windows.Forms.Button BtnExaminar;
         private System.Windows.Forms.PictureBox PbxImagen;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton RbtServidor;
+        private System.Windows.Forms.RadioButton RbtLocalDb;
     }
 }

@@ -19,11 +19,11 @@ namespace VacunDesktop
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
-            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(DespliegueControladoDeErroresOtroshilos);
+            //AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(DespliegueControladoDeErroresOtroshilos);
             
-            Application.ThreadException += new ThreadExceptionEventHandler(DespliegueControladoDeErroresHiloPrincipal);
+            //Application.ThreadException += new ThreadExceptionEventHandler(DespliegueControladoDeErroresHiloPrincipal);
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmInicio());
+            Application.Run(new FrmMenuPrincipal());
         }
         private static void DespliegueControladoDeErroresOtroshilos(object sender, UnhandledExceptionEventArgs args)
         {

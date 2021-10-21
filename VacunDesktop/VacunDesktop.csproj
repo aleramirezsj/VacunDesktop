@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="App_Data\VacunDesktopContext.ldf" />
+    <None Remove="App_Data\VacunDesktopContext.mdf" />
     <None Remove="reportes\ReporteCalendarios.rdlc" />
     <None Remove="reportes\ReporteCalendariosVacunas.rdlc" />
     <None Remove="reportes\ReporteCalendariosVacunas2.rdlc" />
@@ -38,6 +40,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="App_Data\VacunDesktopContext.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\VacunDesktopContext.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="reportes\ReporteCalendarios.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
