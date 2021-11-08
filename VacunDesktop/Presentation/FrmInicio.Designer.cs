@@ -49,7 +49,7 @@ namespace VacunDesktop.Presentation
             // 
             // PnlFondo
             // 
-            this.PnlFondo.BackgroundImage = global::VacunDesktop.Properties.Resources.fondo;
+            
             this.PnlFondo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PnlFondo.Location = new System.Drawing.Point(13, 62);
             this.PnlFondo.Name = "PnlFondo";

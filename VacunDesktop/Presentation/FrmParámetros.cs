@@ -34,7 +34,7 @@ namespace VacunDesktop.Presentation
             if (Properties.Settings.Default.imagenFondo != "")
             {
                 //PbxImagen.Image = Image.FromFile(Properties.Settings.Default.imagenFondo);
-                PbxImagen.Image = Helper.RecuperarImagenDeArchivoDeRecursos("fondo");
+                PbxImagen.Image = Helper.RecuperarImagenDeArchivoDeRecursos("fondoSistema");
                 TxtImagen.Text = Properties.Settings.Default.imagenFondo;
             }
                 
@@ -64,7 +64,7 @@ namespace VacunDesktop.Presentation
                 this.HabilitarDeshabilitarRadioButton(false);
                 if (Properties.Settings.Default.imagenFondo != "")
                 {
-                    Helper.AlmacenarImagenEnArchivoDeRecursos(Image.FromFile(Properties.Settings.Default.imagenFondo));
+                    Helper.AlmacenarImagenEnArchivoDeRecursos(Image.FromFile(Properties.Settings.Default.imagenFondo),"fondoSistema");
                     FrmMenuPrincipal.BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);
                 }
             }

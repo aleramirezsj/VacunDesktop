@@ -20,9 +20,7 @@ namespace VacunDesktop.Presentation
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-            Image imagenFondo = Helper.RecuperarImagenDeArchivoDeRecursos("fondo");
-            if (imagenFondo != null)
-                BackgroundImage = imagenFondo;
+            BackgroundImage = Helper.RecuperarImagenDeArchivoDeRecursos("fondoSistema"); ;
             /*if ((Properties.Settings.Default.imagenFondo != "")&&File.Exists(Properties.Settings.Default.imagenFondo))
                 BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);*/
 

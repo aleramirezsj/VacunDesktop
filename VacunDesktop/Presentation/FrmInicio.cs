@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VacunDesktop.Core;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
@@ -20,7 +21,8 @@ namespace VacunDesktop.Presentation
         public FrmInicio()
         {
             InitializeComponent();
-           
+            PnlFondo.BackgroundImage = Helper.RecuperarImagenDeArchivoDeRecursos("fondoSistema"); ;
+
         }
 
 

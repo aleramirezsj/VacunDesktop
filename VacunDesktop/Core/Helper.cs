@@ -34,17 +34,15 @@ namespace VacunDesktop.Core
             Image imagen = Image.FromStream(imagenStream);
             return imagen;
         }
-        public static void AlmacenarImagenEnArchivoDeRecursos(Image imagenFondo)
+        public static void AlmacenarImagenEnArchivoDeRecursos(Image imagenFondo, string nombreImagen)
         {
             MemoryStream bitmapStream = new MemoryStream();
             Bitmap bmp = new Bitmap(imagenFondo);
             bmp.Save(bitmapStream, ImageFormat.Jpeg);
             using (ResourceWriter rw = new ResourceWriter(@".\Recursos.resources"))
             {
-                rw.AddResource("fondo", bitmapStream);
-
+                rw.AddResource(nombreImagen, bitmapStream);
             }
-
         }
         public static Image RecuperarImagenDeArchivoDeRecursos(string nombreImagen)
         {
@@ -59,16 +57,16 @@ namespace VacunDesktop.Core
                     const int OFFSET = 4;
                     int size = BitConverter.ToInt32(bytesArchivo, 0);
                     Bitmap imagenBMP = new Bitmap(new MemoryStream(bytesArchivo, OFFSET, size));
-                imagen = imagenBMP;
+                    imagen = imagenBMP;
                 }
                 return imagen;
             }
             catch
-            {
+            { //si no encuentra una imagen, cuando se ejecuta por primera vez, o si borraron
+              //accidentalmente el archivo de recursos, crea un nuevo archivo de recursos
                 using (ResourceWriter rw = new ResourceWriter(@".\Recursos.resources"))
                 {
                     rw.AddResource("Sistema", "VacunDeskTop");
-
                 }
                 return null;
             }
