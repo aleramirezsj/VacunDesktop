@@ -24,7 +24,7 @@ namespace VacunDesktop.ExtensionMethods
             {
                 if (obj.GetType().Name == "RadioButton")
                 {
-                    TextBox o = (TextBox)obj;
+                    RadioButton o = (RadioButton)obj;
                     o.Enabled = valor;
                 }
             }

@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App_Data\VacunDesktopContext.ldf" />
-    <None Remove="App_Data\VacunDesktopContext.mdf" />
     <None Remove="reportes\ReporteCalendarios.rdlc" />
     <None Remove="reportes\ReporteCalendariosVacunas.rdlc" />
     <None Remove="reportes\ReporteCalendariosVacunas2.rdlc" />
@@ -17,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FastWebcam-OpenCVSharp3" Version="1.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
@@ -40,12 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="App_Data\VacunDesktopContext.ldf">
+    <EmbeddedResource Include="AppData\VacunDesktopContext.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\VacunDesktopContext.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppData\VacunDesktopContext.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportes\ReporteCalendarios.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

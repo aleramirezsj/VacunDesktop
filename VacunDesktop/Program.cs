@@ -23,7 +23,7 @@ namespace VacunDesktop
             
             //Application.ThreadException += new ThreadExceptionEventHandler(DespliegueControladoDeErroresHiloPrincipal);
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMenuPrincipal());
+            Application.Run(new FrmInicio());
         }
         private static void DespliegueControladoDeErroresOtroshilos(object sender, UnhandledExceptionEventArgs args)
         {

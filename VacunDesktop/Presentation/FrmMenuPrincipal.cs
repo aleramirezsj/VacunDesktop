@@ -20,7 +20,7 @@ namespace VacunDesktop.Presentation
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-            Image imagenFondo = HelperVacunas.RecuperarImagenDeArchivoDeRecursos("fondo");
+            Image imagenFondo = Helper.RecuperarImagenDeArchivoDeRecursos("fondo");
             if (imagenFondo != null)
                 BackgroundImage = imagenFondo;
             /*if ((Properties.Settings.Default.imagenFondo != "")&&File.Exists(Properties.Settings.Default.imagenFondo))
@@ -110,7 +110,7 @@ namespace VacunDesktop.Presentation
         {
             if (Usuario == null)
             {
-                //si no hay nadie logeado, entonces mostramos el formulario de Login
+                //si no hay nadie logueado, entonces mostramos el formulario de Login
                 var frmLogin = new FrmLogin();
                 frmLogin.ShowDialog();
                 if (Usuario != null)

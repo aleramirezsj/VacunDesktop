@@ -7,18 +7,23 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using VacunDesktop.Core;
 using VacunDesktop.Models;
 
 namespace VacunDesktop.Presentation
 {
     public partial class FrmNuevoEditarPaciente : Form
     {
+        //creamos la propiedad para manejar la webcam
+        WebCam webcam;
         public int? IdEditar { get; set; }
         Paciente paciente= new Paciente();
         //Nuevo paciente desde el formulario FrmTutores
         public FrmNuevoEditarPaciente(Tutor tutor)
         {
             InitializeComponent();
+            //inicializamos la Webcam pasándole el formulario actual, que no se inicialice automáticamente y el PictureBox  
+            webcam = new WebCam(this, AutoActivate: false, PbxImagen);
             CargarCboTutor();
             LlenarComboSexo();
             CargarCboCalendario();
@@ -32,6 +37,8 @@ namespace VacunDesktop.Presentation
             CargarCboTutor();
             LlenarComboSexo();
             CargarCboCalendario();
+            //inicializamos la Webcam pasándole el formulario actual, que no se inicialice automáticamente y el PictureBox  
+            webcam = new WebCam(this, AutoActivate: false, PbxImagen);
             CboTutor.Enabled = false;
             CboTutor.SelectedValue = tutor.Id;
             if (idPacienteSeleccionado != 0)
@@ -48,6 +55,8 @@ namespace VacunDesktop.Presentation
             CargarCboTutor();
             LlenarComboSexo();
             CargarCboCalendario();
+            //inicializamos la Webcam pasándole el formulario actual, que no se inicialice automáticamente y el PictureBox  
+            webcam = new WebCam(this, AutoActivate: false, PbxImagen);
             if (idSeleccionado != 0)
             {
                 IdEditar = idSeleccionado;
@@ -61,6 +70,8 @@ namespace VacunDesktop.Presentation
             CargarCboTutor();
             LlenarComboSexo();
             CargarCboCalendario();
+            //inicializamos la Webcam pasándole el formulario actual, que no se inicialice automáticamente y el PictureBox  
+            webcam = new WebCam(this, AutoActivate: false, PbxImagen);
         }
 
         private void CargarDatosDelPaciente()
@@ -78,6 +89,8 @@ namespace VacunDesktop.Presentation
                 DtpFechaNacimiento.Value = paciente.FechaNacimiento.Date;
                 NudDni.Value = paciente.Dni;
                 NudPeso.Value = (decimal)paciente.Peso;
+                if (paciente.Imagen != null)
+                    PbxImagen.Image = Helper.convertirBytesAImagen(paciente.Imagen);
             }
         }
 
@@ -126,6 +139,13 @@ namespace VacunDesktop.Presentation
                 paciente.Dni = (int)NudDni.Value;
                 paciente.Peso = (double)NudPeso.Value;
                 paciente.FechaNacimiento = DtpFechaNacimiento.Value.Date;
+                //si hay una imagen definida la almacenamos en la propiedad correspondiente
+                if (PbxImagen.Image != null)
+                { 
+                    paciente.Imagen = Helper.convertirImagenABytes(PbxImagen.Image);
+                    BtnCapturarFoto.Enabled = true;
+                }else
+                    BtnCapturarFoto.Enabled = false;
 
                 if (IdEditar == null)
                     //agregamos el objeto Tutor al objeto DbContext
@@ -140,6 +160,60 @@ namespace VacunDesktop.Presentation
             }
             //cerramos el formulario
             this.Close();
+        }
+
+        private void BtnExaminar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdAbrirArchivo = new OpenFileDialog();
+            string filtro = "Todas las imágenes|*.jpg;*.gif;*.png;*.bmp";
+            filtro += "|JPG (*.jpg)|*.jpg";
+            filtro += "|GIF* (*.gif)|*.gif";
+            filtro += "|PNG* (*.png)|*.png";
+            filtro += "|BMP (*.bmp)|*.bmp";
+            ofdAbrirArchivo.Filter = filtro;
+            ofdAbrirArchivo.ShowDialog();
+            if (ofdAbrirArchivo.FileName != "")
+            {
+                PbxImagen.Image = new Bitmap(ofdAbrirArchivo.FileName);
+                //TxtImagen.Text = ofdAbrirArchivo.FileName;
+            }
+        }
+
+        private void BtnIniciarDetenerCamara_Click(object sender, EventArgs e)
+        {
+            if (BtnIniciarDetenerCamara.Text == "Iniciar cámara")
+            {
+                InicializarCamara();
+            }
+            else
+            {
+                DetenerCamara();
+            }
+        }
+        private void InicializarCamara()
+        {
+            webcam.Initalize();
+            BtnIniciarDetenerCamara.Text = "Detener cámara";
+            BtnCapturarFoto.Text = "Capturar foto";
+            //RefrescarPaneles();
+            BtnCapturarFoto.Enabled = true;
+        }
+        private void DetenerCamara()
+        {
+            webcam.Deinitalize();
+            BtnIniciarDetenerCamara.Text = "Iniciar cámara";
+            BtnCapturarFoto.Text = "Borrar foto";
+        }
+
+        private void BtnCapturarFoto_Click(object sender, EventArgs e)
+        {
+            if (BtnCapturarFoto.Text == "Borrar foto")
+            {
+                PbxImagen.Image = null;
+                BtnCapturarFoto.Enabled = false;
+            }
+            else
+                DetenerCamara();
         }
     }
 }

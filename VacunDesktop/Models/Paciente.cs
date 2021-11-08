@@ -30,6 +30,7 @@ namespace VacunDesktop.Models
         
         public int? CalendarioId { get; set; }
         public Calendario Calendario { get; set; }
+        public byte[] Imagen { get; set; }
 
     }
 }

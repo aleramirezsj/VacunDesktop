@@ -34,7 +34,7 @@ namespace VacunDesktop.Presentation
             if (Properties.Settings.Default.imagenFondo != "")
             {
                 //PbxImagen.Image = Image.FromFile(Properties.Settings.Default.imagenFondo);
-                PbxImagen.Image = HelperVacunas.RecuperarImagenDeArchivoDeRecursos("fondo");
+                PbxImagen.Image = Helper.RecuperarImagenDeArchivoDeRecursos("fondo");
                 TxtImagen.Text = Properties.Settings.Default.imagenFondo;
             }
                 
@@ -58,13 +58,13 @@ namespace VacunDesktop.Presentation
                 Properties.Settings.Default.contraseña = TxtContraseña.Text;
                 Properties.Settings.Default.imagenFondo = TxtImagen.Text;
                 Properties.Settings.Default.localdb = RbtLocalDb.Checked;
+                Properties.Settings.Default.Save();
                 BtnGuardarModificar.Text = "Modificar";
                 this.HabilitarDeshabilitarTextBox(false);
                 this.HabilitarDeshabilitarRadioButton(false);
-                Properties.Settings.Default.Save();
                 if (Properties.Settings.Default.imagenFondo != "")
                 {
-                    HelperVacunas.AlmacenarImagenEnArchivoDeRecursos(Image.FromFile(Properties.Settings.Default.imagenFondo));
+                    Helper.AlmacenarImagenEnArchivoDeRecursos(Image.FromFile(Properties.Settings.Default.imagenFondo));
                     FrmMenuPrincipal.BackgroundImage = Image.FromFile(Properties.Settings.Default.imagenFondo);
                 }
             }
@@ -83,18 +83,12 @@ namespace VacunDesktop.Presentation
             filtro += "|GIF* (*.gif)|*.gif";
             filtro += "|PNG* (*.png)|*.png";
             filtro += "|BMP (*.bmp)|*.bmp";
-
             ofdAbrirArchivo.Filter = filtro;
             ofdAbrirArchivo.ShowDialog();
-
             if (ofdAbrirArchivo.FileName != "")
             {
-
                 PbxImagen.Image = new Bitmap(ofdAbrirArchivo.FileName);
                 TxtImagen.Text = ofdAbrirArchivo.FileName;
-                
-
-
             }
         }
     }

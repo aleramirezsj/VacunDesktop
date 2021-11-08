@@ -32,7 +32,7 @@ namespace VacunDesktop.Presentation
             {
                 intentosFallidos++;
                 if (intentosFallidos == 3)
-                    this.Close();
+                    Application.Exit();
                 else
                 {
                     MessageBox.Show("Error en usuario o contraseña ingresados");
@@ -44,7 +44,7 @@ namespace VacunDesktop.Presentation
         private bool ValidarAcceso()
         {
             using var db = new VacunWebContext();
-            string pass = HelperVacunas.ObtenerSha256Hash(TxtContraseña.Text);
+            string pass = Helper.ObtenerHashSha256(TxtContraseña.Text);
             var listaUsuarios = db.Usuarios.Where(u => u.User.Equals(TxtUsuario.Text)).Where(u => u.Password.Equals(pass)).ToList();
             //MessageBox.Show(listaUsuarios.Count.ToString());
             if (listaUsuarios.Count > 0)

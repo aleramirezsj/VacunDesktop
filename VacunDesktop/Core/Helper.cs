@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Reflection;
 using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
 
+
 namespace VacunDesktop.Core
 {
-    public static class HelperVacunas
+    public static class Helper
     {
-        public static string ObtenerSha256Hash(string textoAEncriptar)
+        public static string ObtenerHashSha256(string textoAEncriptar)
         {
             // Create a SHA256   
             using SHA256 sha256Hash = SHA256.Create();
@@ -83,8 +85,10 @@ namespace VacunDesktop.Core
             string cadenaConexion;
             if (Properties.Settings.Default.localdb)
             {
+
+                //string carpetalocal = Assembly.GetExecutingAssembly().Location;
                 string carpetalocal= Directory.GetCurrentDirectory();
-                cadenaConexion = $@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = {carpetalocal}\App_Data\VacunDesktopContext.mdf; Integrated Security = True; Connect Timeout = 30";
+                cadenaConexion = $@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = {carpetalocal}\AppData\VacunDesktopContext.mdf; Integrated Security = True; Connect Timeout = 30";
             }
             else
             {

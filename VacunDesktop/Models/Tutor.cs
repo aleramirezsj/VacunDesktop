@@ -18,5 +18,7 @@ namespace VacunDesktop.Models
         public string Contraseña { get; set; }
 
         public  ICollection<Paciente> Pacientes { get; set; }
+
+        public byte[] Imagen { get; set; }
     }
 }
