@@ -212,7 +212,7 @@
             this.NudPeso.DecimalPlaces = 3;
             this.NudPeso.Location = new System.Drawing.Point(191, 256);
             this.NudPeso.Maximum = new decimal(new int[] {
-            200,
+            6000,
             0,
             0,
             0});

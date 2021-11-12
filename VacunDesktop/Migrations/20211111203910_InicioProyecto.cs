@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VacunDesktop.Migrations
 {
-    public partial class inicial : Migration
+    public partial class InicioProyecto : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,8 +18,8 @@ namespace VacunDesktop.Migrations
                     FechaHoraEliminacion = table.Column<DateTime>(nullable: true),
                     Eliminado = table.Column<bool>(nullable: false),
                     Nombre = table.Column<string>(nullable: false),
-                    User = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
+                    User = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false),
                     TipoUsuario = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -69,7 +69,7 @@ namespace VacunDesktop.Migrations
                     Nombre = table.Column<string>(nullable: false),
                     Apellido = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
-                    Contraseña = table.Column<string>(nullable: true)
+                    Password = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -124,7 +124,8 @@ namespace VacunDesktop.Migrations
                     Peso = table.Column<double>(nullable: false),
                     Domicilio = table.Column<string>(nullable: false),
                     TutorId = table.Column<int>(nullable: false),
-                    CalendarioId = table.Column<int>(nullable: true)
+                    CalendarioId = table.Column<int>(nullable: true),
+                    Imagen = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -215,14 +216,19 @@ namespace VacunDesktop.Migrations
 
             migrationBuilder.InsertData(
                 table: "Tutores",
-                columns: new[] { "Id", "Apellido", "Contraseña", "Eliminado", "Email", "FechaHoraEliminacion", "Nombre", "UsuarioId" },
+                columns: new[] { "Id", "Apellido", "Eliminado", "Email", "FechaHoraEliminacion", "Nombre", "Password", "UsuarioId" },
                 values: new object[,]
                 {
-                    { 1, "Carlos", "1234", false, "juancarlos1@gmail.com", null, "Juan", null },
-                    { 2, "Picapiedra", "1234", false, "pedropicapiedra@gmail.com", null, "Pedro", null },
-                    { 3, "Rodriguez", "1234", false, "enriquerodriguez@gmail.com", null, "Enrique", null },
-                    { 4, "Martinez", "1234", false, "pepitomartinez@gmail.com", null, "Pepito", null }
+                    { 1, "Carlos", false, "juancarlos1@gmail.com", null, "Juan", "1234", null },
+                    { 2, "Picapiedra", false, "pedropicapiedra@gmail.com", null, "Pedro", "1234", null },
+                    { 3, "Rodriguez", false, "enriquerodriguez@gmail.com", null, "Enrique", "1234", null },
+                    { 4, "Martinez", false, "pepitomartinez@gmail.com", null, "Pepito", "1234", null }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "Id", "Eliminado", "FechaHoraEliminacion", "Nombre", "Password", "TipoUsuario", "User", "UsuarioId", "UsuarioId1" },
+                values: new object[] { 1, false, null, "admin", "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", 1, "admin", null, null });
 
             migrationBuilder.InsertData(
                 table: "Vacunas",

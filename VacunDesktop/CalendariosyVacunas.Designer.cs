@@ -1833,7 +1833,7 @@ SELECT Id, Nombre, SexoPaciente, PrematuroPaciente FROM Calendarios WHERE (Id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=VacunWebContext;User ID=sa;Password=123";
+            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=VacunasContext;User ID=sa;Password=123";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2152,7 +2152,7 @@ SELECT Id, CalendarioId, VacunaId FROM DetalleCalendarios WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=VacunWebContext;User ID=sa;Password=123";
+            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=VacunasContext;User ID=sa;Password=123";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2460,7 +2460,7 @@ SELECT Id, Nombre, PeriodoAplicacion, Beneficios FROM Vacunas WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=VacunWebContext;User ID=sa;Password=123";
+            this._connection.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=VacunasContext;User ID=sa;Password=123";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

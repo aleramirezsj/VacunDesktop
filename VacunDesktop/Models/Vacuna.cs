@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VacunDesktop.Models
 {
-    public class Vacuna:ModeloBase
+    public class Vacuna : ModeloBase
     {
         public int Id { get; set; }
         [Required]

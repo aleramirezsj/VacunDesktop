@@ -37,7 +37,7 @@ namespace VacunDesktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("VacunWebContext")]
+        [global::System.Configuration.DefaultSettingValueAttribute("VacunasContext")]
         public string bbdd {
             get {
                 return ((string)(this["bbdd"]));

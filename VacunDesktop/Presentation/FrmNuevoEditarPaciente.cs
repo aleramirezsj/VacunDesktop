@@ -76,7 +76,7 @@ namespace VacunDesktop.Presentation
 
         private void CargarDatosDelPaciente()
         {
-            using (var db=new VacunWebContext())
+            using (var db=new VacunasContext())
             {
                 paciente=db.Pacientes.Find(IdEditar);
                 TxtApellido.Text = paciente.Apellido;
@@ -96,7 +96,7 @@ namespace VacunDesktop.Presentation
 
         private void CargarCboTutor()
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 var listaTutores = from tutor in db.Tutores
                                    select new { id = tutor.Id, nombre = tutor.Apellido.Trim() + " " + tutor.Nombre.Trim() };
@@ -108,7 +108,7 @@ namespace VacunDesktop.Presentation
 
         private void CargarCboCalendario()
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 var listaCalendarios = from calendario in db.Calendarios
                                    select new { id = calendario.Id, nombre = calendario.Nombre };
@@ -126,7 +126,7 @@ namespace VacunDesktop.Presentation
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             //instanciamos un objeto DbContext
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto
                 paciente.Apellido = TxtApellido.Text;

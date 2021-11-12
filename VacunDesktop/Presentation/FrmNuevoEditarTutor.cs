@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using VacunDesktop.Core;
 using VacunDesktop.ExtensionMethods;
 using VacunDesktop.Models;
 
@@ -33,27 +34,27 @@ namespace VacunDesktop.Presentation
         private void CargarDatosDelTutorEnPantalla()
         {
             //instanciamos un objeto DbContext
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 //a través del IdTutorEditar buscamos los datos del tutor en la base de datos
                 tutor=db.Tutores.Find(IdTutorEditar);
                 TxtApellido.Text=tutor.Apellido  ;
                 TxtNombre.Text= tutor.Nombre;
                 TxtEmail.Text=tutor.Email ;
-                TxtContraseña.Text = tutor.Contraseña;
+                TxtContraseña.Text = tutor.Password;
             }
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             //instanciamos un objeto DbContext
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto
                 tutor.Apellido = TxtApellido.Text;
                 tutor.Nombre = TxtNombre.Text;
                 tutor.Email = TxtEmail.Text;
-                tutor.Contraseña = TxtContraseña.Text;
+                tutor.Password = Helper.ObtenerHashSha256(TxtContraseña.Text);
 
                 if (IdTutorEditar==null)
                     //agregamos el objeto Tutor al objeto DbContext

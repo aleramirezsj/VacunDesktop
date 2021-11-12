@@ -31,7 +31,7 @@ namespace VacunDesktop.Presentation
 
         public void CargarDatosEnPantalla()
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
 
                 //colocamos en las cajas de texto los datos de la BBDD 
@@ -44,7 +44,7 @@ namespace VacunDesktop.Presentation
         }
         private void BtnGuardarV_Click(object sender, EventArgs e)
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
 
                 //le asignamos a sus propiedades el valor de cada uno de los cuadros de texto

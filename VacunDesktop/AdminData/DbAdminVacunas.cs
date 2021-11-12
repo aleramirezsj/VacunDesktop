@@ -13,13 +13,13 @@ namespace VacunDesktop.AdminData
     {
         public IEnumerable<object> ObtenerTodos()
         {
-            using VacunWebContext db = new VacunWebContext();
+            using VacunasContext db = new VacunasContext();
             return db.Vacunas.ToList();
         }
 
         public void Eliminar(int idSeleccionado)
         {
-            using VacunWebContext db = new VacunWebContext();
+            using VacunasContext db = new VacunasContext();
             var vacuna = db.Vacunas.Find(idSeleccionado);
             vacuna.Eliminado = true;
             vacuna.FechaHoraEliminacion = DateTime.Now;
@@ -31,18 +31,18 @@ namespace VacunDesktop.AdminData
 
         public object Obtener(int? idObtener)
         {
-            using VacunWebContext db = new VacunWebContext();
+            using VacunasContext db = new VacunasContext();
             return db.Vacunas.Find(idObtener);
         }
         public void Agregar(object vacuna)
         {
-            using VacunWebContext db = new VacunWebContext();
+            using VacunasContext db = new VacunasContext();
             db.Vacunas.Add((Vacuna)vacuna);
             db.SaveChanges();
         }
         public void Actualizar(object vacuna)
         {
-            using VacunWebContext db = new VacunWebContext();
+            using VacunasContext db = new VacunasContext();
             db.Entry(vacuna).State = EntityState.Modified;
             db.SaveChanges();
         }
@@ -51,7 +51,7 @@ namespace VacunDesktop.AdminData
 
         public  IEnumerable<object> ObtenerTodos(string cadenaBuscada)
         {
-            using VacunWebContext db = new VacunWebContext();
+            using VacunasContext db = new VacunasContext();
 
             //var listaVacunas = from vacuna in db.Vacunas
             //                       select new { id = vacuna.Id, Nombre = vacuna.Nombre.Trim(), sexo = vacuna.SexoPaciente };

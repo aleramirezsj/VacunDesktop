@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VacunDesktop.Models
 {
-    public class Calendario: ModeloBase
+    public class Calendario : ModeloBase
     {
         public int Id { get; set; }
         [Required]
@@ -16,9 +16,6 @@ namespace VacunDesktop.Models
         public SexoEnum SexoPaciente { get; set; }
         [Required]
         public bool PrematuroPaciente { get; set; }
-
-
         public virtual ObservableCollection<DetalleCalendario> DetalleCalendarios { get; set; }
-
     }
 }

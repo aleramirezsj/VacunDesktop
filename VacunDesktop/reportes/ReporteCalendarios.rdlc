@@ -447,10 +447,18 @@
           <DataField>PrematuroPaciente</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="IdVacuna">
+          <DataField>IdVacuna</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreVacuna">
+          <DataField>NombreVacuna</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSetCalendarios</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\ASUS-2\source\repos\VacunDesktop\VacunDesktop\DataSetCalendarios.xsd</rd:SchemaPath>
+        <rd:DataSetName>CalendariosyVacunas</rd:DataSetName>
+        <rd:SchemaPath>D:\repos\VacunDesktop\VacunDesktop\CalendariosyVacunas.xsd</rd:SchemaPath>
         <rd:TableName>Calendarios</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

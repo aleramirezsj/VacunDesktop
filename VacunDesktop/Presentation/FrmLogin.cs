@@ -43,7 +43,7 @@ namespace VacunDesktop.Presentation
         }
         private bool ValidarAcceso()
         {
-            using var db = new VacunWebContext();
+            using var db = new VacunasContext();
             string pass = Helper.ObtenerHashSha256(TxtContraseña.Text);
             var listaUsuarios = db.Usuarios.Where(u => u.User.Equals(TxtUsuario.Text)).Where(u => u.Password.Equals(pass)).ToList();
             //MessageBox.Show(listaUsuarios.Count.ToString());

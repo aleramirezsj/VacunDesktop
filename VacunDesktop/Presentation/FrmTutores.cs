@@ -26,7 +26,7 @@ namespace VacunDesktop.Presentation
 
         private void ActualizarGrilla()
         {
-            using (var db = new VacunWebContext()) { 
+            using (var db = new VacunasContext()) { 
                 gridTutores.DataSource = db.Tutores.ToList();
                 gridTutores.OcultarColumnas();
             }
@@ -55,7 +55,7 @@ namespace VacunDesktop.Presentation
             //si responde que si, instanciamos al objeto dbcontext, y eliminamos el tutor a través del id que obtuvimos
             if (respuesta == DialogResult.Yes)
             {
-                using (var db=new VacunWebContext())
+                using (var db=new VacunasContext())
                 {
                     var tutor = db.Tutores.Find(idTutorSeleccionado);
                     db.Tutores.Remove(tutor);
@@ -67,7 +67,7 @@ namespace VacunDesktop.Presentation
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
-            using (var db=new VacunWebContext())
+            using (var db=new VacunasContext())
             {
                 gridTutores.DataSource = db.Tutores.Where(t => t.Apellido.Contains(TxtBusqueda.Text) || t.Nombre.Contains(TxtBusqueda.Text) || t.Email.Contains(TxtBusqueda.Text)).ToList();
                 
@@ -96,7 +96,7 @@ namespace VacunDesktop.Presentation
                 var idTutorSeleccionado = int.Parse(gridTutores.CurrentRow.Cells[0].Value.ToString());
                 if (idTutorSeleccionado > 0)
                 {
-                    using var db = new VacunWebContext();
+                    using var db = new VacunasContext();
                     tutor = (Tutor)db.Tutores.Where(t => t.Id == idTutorSeleccionado).Include(p => p.Pacientes).FirstOrDefault();
                     //if (tutor.Pacientes!=null)
                     var pacientesAListar = from paciente in tutor.Pacientes

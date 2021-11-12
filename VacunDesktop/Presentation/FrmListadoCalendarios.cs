@@ -35,7 +35,7 @@ namespace VacunDesktop.Presentation
             //asignamos el archivo a la propiedad LocalReport del objeto ReportViewer
             reporte.LocalReport.LoadReportDefinition(fs);
             //buscamos los datos que va a graficar el reporte
-            using var db = new VacunWebContext();
+            using var db = new VacunasContext();
             var calendarios = db.Calendarios.ToList();
             //asignamos los datos a la propiedad DataSources del ReportViewer, utilizando
             //un objeto del tipo ReportDataSource

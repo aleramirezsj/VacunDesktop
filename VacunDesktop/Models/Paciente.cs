@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VacunDesktop.Models
 {
-    public class Paciente: ModeloBase
+    public class Paciente : ModeloBase
     {
         public int Id { get; set; }
         [Required]
@@ -31,6 +31,5 @@ namespace VacunDesktop.Models
         public int? CalendarioId { get; set; }
         public Calendario Calendario { get; set; }
         public byte[] Imagen { get; set; }
-
     }
 }

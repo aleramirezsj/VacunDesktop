@@ -24,7 +24,7 @@ namespace VacunDesktop.Presentation
 
         private void ActualizarGrilla()
         {
-            using (var db = new VacunWebContext()) { 
+            using (var db = new VacunasContext()) { 
                 grid.DataSource = db.Vacunas.ToList();
             }
         }
@@ -63,7 +63,7 @@ namespace VacunDesktop.Presentation
             //si responde que si, instanciamos al objeto dbcontext, y eliminamos el tutor a través del id que obtuvimos
             if (respuesta == DialogResult.Yes)
             {
-                using (var db=new VacunWebContext())
+                using (var db=new VacunasContext())
                 {
                     var vacuna = db.Vacunas.Find(idSeleccionado);
                     db.Vacunas.Remove(vacuna);
@@ -75,7 +75,7 @@ namespace VacunDesktop.Presentation
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
-            using (var db=new VacunWebContext())
+            using (var db=new VacunasContext())
             {
                 grid.DataSource = db.Vacunas.Where(t => t.Nombre.Contains(TxtBusqueda.Text)).ToList();
                 

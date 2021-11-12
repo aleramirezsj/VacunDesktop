@@ -7,17 +7,17 @@ using VacunDesktop.Core;
 
 namespace VacunDesktop.Models
 {
-    public class VacunWebContext : DbContext
+    public class VacunasContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Helper.ObtenerCadenaDeConexión());
 
-            //optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=VacunWebContext; User Id = sa; Password = 123; MultipleActiveResultSets = True;");
-            /* optionsBuilder.UseMySql(@"server=192.168.1.100;user=admin;password=123;port=3306;database=VacunWebContext;", mySqlOptions => mySqlOptions
+            //optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS; Database=VacunasContext; User Id = sa; Password = 123; MultipleActiveResultSets = True;");
+            /* optionsBuilder.UseMySql(@"server=192.168.1.100;user=admin;password=123;port=3306;database=VacunasContext;", mySqlOptions => mySqlOptions
                              .ServerVersion(new Version(5, 7, 31), ServerType.MySql)
                              .CharSetBehavior(CharSetBehavior.NeverAppend));*/
-            /*optionsBuilder.UseMySql(@"server=192.168.1.100;user=admin;password=123;port=3306;database=VacunWebContext;", mySqlOptions => mySqlOptions
+            /*optionsBuilder.UseMySql(@"server=192.168.1.100;user=admin;password=123;port=3306;database=VacunasContext;", mySqlOptions => mySqlOptions
                   .ServerVersion(new Version(8, 0, 21), ServerType.MySql)
                   .CharSetBehavior(CharSetBehavior.NeverAppend));*/
 
@@ -48,10 +48,10 @@ namespace VacunDesktop.Models
 
             #endregion
             #region Datos semilla Tutor
-            var tutor1 = new Tutor { Id = 1, Nombre = "Juan", Apellido = "Carlos", Contraseña = "1234",Email = "juancarlos1@gmail.com" };
-            var tutor2 = new Tutor { Id = 2, Nombre = "Pedro", Apellido = "Picapiedra", Contraseña = "1234", Email = "pedropicapiedra@gmail.com" };
-            var tutor3 = new Tutor { Id = 3, Nombre = "Enrique", Apellido = "Rodriguez", Contraseña = "1234", Email = "enriquerodriguez@gmail.com" };
-            var tutor4 = new Tutor { Id = 4, Nombre = "Pepito", Apellido = "Martinez", Contraseña = "1234", Email = "pepitomartinez@gmail.com" };
+            var tutor1 = new Tutor { Id = 1, Nombre = "Juan", Apellido = "Carlos", Password = "1234",Email = "juancarlos1@gmail.com" };
+            var tutor2 = new Tutor { Id = 2, Nombre = "Pedro", Apellido = "Picapiedra", Password = "1234", Email = "pedropicapiedra@gmail.com" };
+            var tutor3 = new Tutor { Id = 3, Nombre = "Enrique", Apellido = "Rodriguez", Password = "1234", Email = "enriquerodriguez@gmail.com" };
+            var tutor4 = new Tutor { Id = 4, Nombre = "Pepito", Apellido = "Martinez", Password = "1234", Email = "pepitomartinez@gmail.com" };
             modelBuilder.Entity<Tutor>().HasData(tutor1, tutor2, tutor3, tutor4);
             #endregion
             #region Datos semilla Vacunas
@@ -92,6 +92,10 @@ namespace VacunDesktop.Models
 
             modelBuilder.Entity<Vacuna>().HasData(BCG, HBHB, NC, NC2, NCRefuerzo, QP, QP2, QP3, P, P2, P3, Pr, R, R2, M, M2, Mr, Mud, Grip1, Grip2, hepa, triple1, triple2, triple3, vari, cuadru, triBac, triBac2, virPap, dobBac, dobVir, fieAma, fieAma2, fieHemo);
             #endregion
+            #region Datos semilla Usuarios
+            var usuario = new Usuario { Id = 1, Nombre="admin", User = "admin", Password = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", TipoUsuario = TipoUsuarioEnum.Administrador };
+            modelBuilder.Entity<Usuario>().HasData(usuario);
+            #endregion
 
         }
         public DbSet<Calendario> Calendarios { get; set; }
@@ -101,14 +105,14 @@ namespace VacunDesktop.Models
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<DetalleCalendario> DetalleCalendarios { get; set; }
         public DbSet<VacunaColocada> VacunasColocadas { get; set; }
-        public VacunWebContext(DbContextOptions<VacunWebContext> options) : base(options)
+        public VacunasContext(DbContextOptions<VacunasContext> options) : base(options)
         {
 
             
 
         }
 
-        public VacunWebContext()
+        public VacunasContext()
         {
 
         }

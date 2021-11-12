@@ -1,3 +1,7 @@
 ﻿namespace VacunDesktop
 {
 }
+
+namespace VacunDesktop
+{
+}

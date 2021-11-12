@@ -23,7 +23,7 @@ namespace VacunDesktop.Presentation
 
         private void CargarCboVacunas(int? idCalendario)
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 CboVacuna.DisplayMember = "nombre";
                 CboVacuna.ValueMember = "id";
@@ -41,7 +41,7 @@ namespace VacunDesktop.Presentation
         }
         private void ActualizarGrilla()
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 var pacientesAListar = from paciente in db.Pacientes
                                        select new { id = paciente.Id, nombre = paciente.Nombre +" "+paciente.Apellido, fechaNacimiento = paciente.FechaNacimiento, sexo = paciente.Sexo , prematuro = paciente.Prematuro};
@@ -77,7 +77,7 @@ namespace VacunDesktop.Presentation
         {
             //tomamos el ID del paciente
             var idPaciente = int.Parse(Grid.CurrentRow.Cells[0].Value.ToString());
-            using var db = new VacunWebContext();
+            using var db = new VacunasContext();
             this.pacienteSeleccionado= db.Pacientes.Find(idPaciente);
             CargarCboVacunas(pacienteSeleccionado.CalendarioId);
             CargarCboVacunasColocadas(idPaciente);
@@ -85,7 +85,7 @@ namespace VacunDesktop.Presentation
 
         private void CargarCboVacunasColocadas(int idPaciente)
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 var listaVacunasColocadas = from vacuna in db.Vacunas
                                    join colocada in db.VacunasColocadas
@@ -109,7 +109,7 @@ namespace VacunDesktop.Presentation
                     VacunaId = (int)CboVacuna.SelectedValue,
                     Fecha = DateTime.Now.Date
                 };
-                using var db = new VacunWebContext();
+                using var db = new VacunasContext();
                 db.VacunasColocadas.Add(vacunaColocada);
                 db.SaveChanges();
                 CargarCboVacunasColocadas(idPaciente);

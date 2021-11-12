@@ -6,7 +6,7 @@
       <Value Profile="(Default)">173.255.225.72</Value>
     </Setting>
     <Setting Name="bbdd" Type="System.String" Scope="User">
-      <Value Profile="(Default)">VacunWebContext</Value>
+      <Value Profile="(Default)">VacunasContext</Value>
     </Setting>
     <Setting Name="usuario" Type="System.String" Scope="User">
       <Value Profile="(Default)">sa</Value>

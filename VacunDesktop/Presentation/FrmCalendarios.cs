@@ -31,7 +31,7 @@ namespace VacunDesktop.Presentation
 
         private void CargarCboVacunas()
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 CboVacuna.DisplayMember = "nombre";
                 CboVacuna.ValueMember = "id";
@@ -112,7 +112,7 @@ namespace VacunDesktop.Presentation
 
         private void ActualizarGrillaDetalle(int idSeleccionado)
         {
-            using (var db = new VacunWebContext())
+            using (var db = new VacunasContext())
             {
                 var listaVacunas = from detalle in db.DetalleCalendarios.Where(c=>c.CalendarioId==                                                                    idSeleccionado)
                                    select new { id = detalle.Id, vacuna = detalle.Vacuna.Nombre };
@@ -124,7 +124,7 @@ namespace VacunDesktop.Presentation
         {
             var idCalendario = grid.ObtenerIdSeleccionado();
             var idVacuna = (int)CboVacuna.SelectedValue;
-            using var db = new VacunWebContext();
+            using var db = new VacunasContext();
             var detalleCalendario = new DetalleCalendario();
             detalleCalendario.CalendarioId = idCalendario;
             detalleCalendario.VacunaId = idVacuna;
@@ -169,7 +169,7 @@ namespace VacunDesktop.Presentation
             //si responde que si, instanciamos al objeto dbcontext, y eliminamos el Calendario a través del id que obtuvimos
             if (respuesta == DialogResult.Yes)
             {
-                using (var db = new VacunWebContext())
+                using (var db = new VacunasContext())
                 {
                     var detalle = db.DetalleCalendarios.Find(idSeleccionado);
                     db.DetalleCalendarios.Remove(detalle);

@@ -9,9 +9,9 @@ using VacunDesktop.Models;
 
 namespace VacunDesktop.Migrations
 {
-    [DbContext(typeof(VacunWebContext))]
-    [Migration("20210920171533_agregamosRequireds")]
-    partial class agregamosRequireds
+    [DbContext(typeof(VacunasContext))]
+    [Migration("20211111203910_InicioProyecto")]
+    partial class InicioProyecto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -140,6 +140,9 @@ namespace VacunDesktop.Migrations
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
+                    b.Property<byte[]>("Imagen")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -181,10 +184,6 @@ namespace VacunDesktop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Contraseña")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("Eliminado")
                         .HasColumnType("bit");
 
@@ -196,6 +195,10 @@ namespace VacunDesktop.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -213,37 +216,37 @@ namespace VacunDesktop.Migrations
                         {
                             Id = 1,
                             Apellido = "Carlos",
-                            Contraseña = "1234",
                             Eliminado = false,
                             Email = "juancarlos1@gmail.com",
-                            Nombre = "Juan"
+                            Nombre = "Juan",
+                            Password = "1234"
                         },
                         new
                         {
                             Id = 2,
                             Apellido = "Picapiedra",
-                            Contraseña = "1234",
                             Eliminado = false,
                             Email = "pedropicapiedra@gmail.com",
-                            Nombre = "Pedro"
+                            Nombre = "Pedro",
+                            Password = "1234"
                         },
                         new
                         {
                             Id = 3,
                             Apellido = "Rodriguez",
-                            Contraseña = "1234",
                             Eliminado = false,
                             Email = "enriquerodriguez@gmail.com",
-                            Nombre = "Enrique"
+                            Nombre = "Enrique",
+                            Password = "1234"
                         },
                         new
                         {
                             Id = 4,
                             Apellido = "Martinez",
-                            Contraseña = "1234",
                             Eliminado = false,
                             Email = "pepitomartinez@gmail.com",
-                            Nombre = "Pepito"
+                            Nombre = "Pepito",
+                            Password = "1234"
                         });
                 });
 
@@ -286,6 +289,17 @@ namespace VacunDesktop.Migrations
                     b.HasIndex("UsuarioId1");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Eliminado = false,
+                            Nombre = "admin",
+                            Password = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+                            TipoUsuario = 1,
+                            User = "admin"
+                        });
                 });
 
             modelBuilder.Entity("VacunDesktop.Models.Vacuna", b =>
